@@ -1,0 +1,56 @@
+
+/* * {
+    border:solid 1px red;
+} */
+
+.flex-container {
+    display: flex;
+}
+
+
+.item-image {
+    flex-direction: row;
+    align-items: stretch;
+}
+
+
+.rating {
+    position: relative;
+    align-self: flex-end;
+    z-index: 1;
+    color: white;
+    right: 30px;
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.image-box{
+    position: relative;
+    top: -75px;
+}
+
+.inside-img {
+    object-fit: cover;
+}
+.over-play{
+   width: 100%;
+    color: white;
+    z-index: 30;
+    position: absolute;
+  align-self: center;
+
+  justify-content: space-around;
+  
+ 
+}
+
+.inside-svg{
+    width: 65px;
+    color: white;
+    opacity: 0.6;
+    
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
