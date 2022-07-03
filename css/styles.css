@@ -49,3 +49,27 @@
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
+
+
+
+/*COMMON*/
+#drowpDownControl:checked ~ .nav-box .dropdown-navigation{
+    display: block;
+}
+
+
+#searchControl:checked ~ .search-box{
+    display:flex;
+}
+
+.bg-black-rgba {
+    background-color: rgba(0,0,0,0.6);
+}
+
+
+.selected-li {
+    display: flex;
+    place-items:center;
+    text-align: center;
+}

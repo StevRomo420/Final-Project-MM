@@ -10,54 +10,110 @@
 </head>
 <body class="bg-gray-100 font-mono">
 
-    <header class="bg-white-800 shadow-3xl w-auto h-12">
 
-        <div class="flex justify-between text-xl items-center content-center h-12 bg-white lg:text-2xl">
-            
-            <div class="px-10 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="rgb(188,187,192)" class="bi bi-list" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-              </svg></div>
+    <header class="z-20">
 
-              <div class="flex place-items-center md:hidden">
-                  <a href="#" class="flex place-items-center text-2xl font-bold text-teal-300">Trending movies<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="rgb(94, 234, 212)" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                  </svg>
-                </a>
-              </div>
-              
+        <input type="checkbox" id="drowpDownControl" class="hidden">
+        <input type="checkbox" id="searchControl" class="hidden">
 
-              <div class="hidden md:flex items-center space-x-2 pl-48">
-                <a
-                    href="#"
-                    class="py-4 px-0 text-gray-500 hover:text-teal-300  font-semibold hover:underline"
-                    >Peliculas nuevas</a
-                >
-                <a
-                    href="#"
-                    class="py-4 px-2 text-gray-500 font-semibold hover:text-teal-300 hover:underline"
-                    >Cartelera</a
-                >
-                <a
-                    href="#"
-                    class="py-4 px-2 text-gray-500 font-semibold hover:text-teal-300 hover:underline"
-                    >Populares</a
-                >
-                <a
-                    href="#"
-                    class="py-4 px-2 text-gray-500 font-semibold hover:text-teal-300 hover:underline"
-                    >Acerca de</a
-                >
-            </div>
+        <div class="menu-box flex justify-around bg-white shadow-xl place-items-center">
 
-              <div class="px-10">
-                  <i><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="rgb(188,187,192)" class="bi bi-search" viewBox="0 0 16 16">
+
+            <label for="drowpDownControl" class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="rgb(188,187,192)" class="cursor-pointer m-2 bi bi-lis" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </label>
+
+        
+
+            <nav class="main-navigation">
+                <ul class="flex text-2xl">
+
+                    <li class="selected-li md:hidden">
+                        <a href="#" class="selected-a py-2 px-0 text-teal-300 hover:text-teal-300 text-2xl font-bold hover:underline">
+                            Peliculas nuevas
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="rgb(94, 234, 212)" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                        </svg>
+                    </li>
+
+                     <li class="hidden md:flex">
+                        <a href="#" class="py-2 px-2 text-gray-500 hover:text-teal-300  font-semibold hover:underline">
+                            Peliculas nuevas
+                        </a>
+                    </li>
+
+                    <li class="hidden md:flex">
+                        <a href="#" class="py-2 px-2 text-gray-500 font-semibold hover:text-teal-300 hover:underline">
+                            Cartelera
+                        </a>
+                    </li>
+                    <li class="hidden md:flex">
+                        <a href="#" class="py-2 px-2 text-gray-500 font-semibold hover:text-teal-300 hover:underline">
+                            Populares
+                        </a>
+                    </li>
+                    <li class="hidden md:flex">
+                        <a href="#" class="py-2 px-2 text-gray-500 font-semibold hover:text-teal-300 hover:underline">
+                            Acerca de
+                        </a> 
+                    </li>
+                </ul>
+            </nav>
+
+
+            <label for="searchControl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="rgb(188,187,192)" class="cursor-pointer m-2 bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                  </svg></i>
-              </div>
+                </svg>
+            </label>
+
+           
+            
         </div>
 
+        <div class="search-box hidden">
+            <input type="text" placeholder="Buscar..." class="flex-1 md:flex-0  focus:outline-none border m-1 focus:border-teal-300 rounded">
+             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 m-1 border border-blue-700 rounded">
+                Buscar
+            </button>
+        </div>
+
+        <div class="nav-box md:hidden">
+
+            <nav class="dropdown-navigation bg-black-rgba hidden">
+                <ul class="flex flex-col [&>li]:flex [&>li]:justify-center [&>li>a]:text-center [&>li>a]:flex-1 [&>li]:border-b-2 text-xl">
+                    <li>
+                        <a href="#" class="py-2 px-0 text-white hover:text-teal-300  font-semibold hover:underline">
+                            Peliculas nuevas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="py-2 px-2 text-white font-semibold hover:text-teal-300 hover:underline">
+                            Cartelera
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="py-2 px-2 text-white font-semibold hover:text-teal-300 hover:underline">
+                            Populares
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="py-2 px-2 text-white font-semibold hover:text-teal-300 hover:underline">
+                            Acerca de
+                        </a> 
+                    </li>
+                </ul>
+            </nav>
+            
+        </div>  
  
     </header>
+
+
 
     <main class="bg-gray-300 md:grid md:grid-cols-2 xl:grid-cols-3">
 
@@ -602,36 +658,48 @@
       
     </main>
 
-    <footer class="fixed inset-x-0 bottom-0 z-50 md:hidden">
 
-        <div class="flex items-center content-center justify-center h-12 bg-white gap-12">
-            <a  href="#" class="hover:animate-bounce">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="rgb(94, 234, 212)" class="bi bi-film" viewBox="0 0 16 16">
-                    <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"/>
-                  </svg>
-            </a>
-            <a  href="#" class="hover:animate-bounce">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="rgb(94, 234, 212)" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                  </svg>
-            </a>
-            <a  href="#" class="hover:animate-bounce">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rotate" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(94, 234, 212)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <desc>Download more icon variants from https://tabler-icons.io/i/rotate</desc>
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5"></path>
-                 </svg>
-            </a>
-            <a  href="#" class="hover:animate-bounce"> 
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="rgb(94, 234, 212)" class="bi bi-person" viewBox="0 0 16 16">
-                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                  </svg>
-            </a>
-            
 
-        </div>
+
+
+    <footer class="fixed inset-x-0 bottom-0 z-50 md:hidden z-20">
+
+        <nav>
+            <ul class="flex items-center content-center justify-center h-12 bg-white gap-12 [&>li>a]:inline-block">
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="rgb(94, 234, 212)" class="hover:animate-bounce" viewBox="0 0 16 16">
+                            <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="rgb(94, 234, 212)" class="hover:animate-bounce" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                        </svg>
+                    </a>  
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-bounce" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(94, 234, 212)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="rgb(94, 234, 212)" class="hover:animate-bounce" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                        </svg>
+                    </a>  
+                </li>
+            </ul>
+        </nav>
 
     </footer>
+    
     
 
 
