@@ -1,7 +1,3 @@
-div {
-    border:solid 1px red;
-} 
-
 .flex-container {
     display: flex;
 }

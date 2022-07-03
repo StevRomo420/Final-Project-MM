@@ -1,65 +1,53 @@
 
-.over-layer {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	height: 100%;
+
+/*COMMON*/
+
+.bg-black-rgba {
+	background-color: rgba(0,0,0,0.2);
 }
 
 
-.behind-layer {
-	position: fixed;
+.selected-li {
+	display: flex;
+	place-items:center;
+	text-align: center;
+}
 
-	z-index: -1;
-	
-	top: 0;
-	left: 0;
-
-	height: 40%;
-	width: 100%;
-
-
+#drowpDownControl:checked ~ .nav-box .dropdown-navigation{
+	display: block;
 }
 
 
-.bg-image {
-	position: relative;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-
-	object-fit: cover;
-	object-position: center;
-	z-index: -1;
+#searchControl:checked ~ .search-box{
+	display:flex;
 }
 
 
-.play-btn {
-	margin-bottom: 30px;
-	border-radius: 100%;
-}
 
 
-.img-box {
+/*THIS*/
+
+.small-img-box {
 	width: 150px;
-	height: 200px;
-	margin-bottom: 30px;
+	height: 205px;
 }
 
-.detail-img {
-	border-radius: 5px;
+.simple-grid {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr;
+}
+
+.full-grid-item {
+	grid-row-start: 1;
+	grid-row-end: 1;
+	grid-column-start: 1;
+	grid-column-end: 1;
 }
 
 
-.border {
-	border:solid 20px red;
-}
-
-
-.b-triangle {
-	position: relative;
-	top: 30%;
-	height: 70%;
-	width: 100%;
+.carousel-img {
+	min-width: 100px;
+	width: 100px;
+	height: 150px;
 }
