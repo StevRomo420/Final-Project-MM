@@ -32,22 +32,21 @@
 	height: 205px;
 }
 
-.simple-grid {
-	display: grid;
-	grid-template-rows: 1fr;
-	grid-template-columns: 1fr;
-}
-
-.full-grid-item {
-	grid-row-start: 1;
-	grid-row-end: 1;
-	grid-column-start: 1;
-	grid-column-end: 1;
-}
-
-
 .carousel-img {
 	min-width: 100px;
 	width: 100px;
 	height: 150px;
+}
+
+
+.overlap-box {
+	background: #1988a4;
+	display: grid;
+	grid-template-areas: 'upperBox';
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+}
+
+.overlap-item{
+	grid-area: upperBox;
 }
