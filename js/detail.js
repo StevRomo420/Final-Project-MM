@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded',function(){
 
 	//PARAM
-	const params = new URLSearchParams(window.location.search);
+	const params 		= new URLSearchParams(window.location.search);
 
 	//COMPONENT
 	const posterImg 	= $('.poster-img-js');
+	const bigPosterImg 	= $('.big-poster-img-js');
 	const backImg 		= $('.back-img-js');
 	const title			= $('.movie-title-js');
 	const length		= $('.movie-length-js');
@@ -15,9 +16,10 @@ document.addEventListener('DOMContentLoaded',function(){
 	const movie			= $('.movie-js');
 	const warning		= $('.warning-js');
 	const errMsg		= $('.error-msg-js');
+	const carousel		= $('.carousel-js');
 
 
-	//Initial Check
+	//INITAL MOVIE FIND CALL
 	function findMovie(){
 
 		if(params.has('movie')){
@@ -40,10 +42,13 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	}
 	
+	//SHOW MOVIE DETAILS
 	function showMovie(data){
 
 		movie.toggleClass('hidden');
-		posterImg.attr('src',imagePath.replace(replaceImageSizeKey,'w300').replace(replaceImagePathKey,data.poster_path));
+		posterImg.attr('src',imagePath.replace(replaceImageSizeKey,'w200').replace(replaceImagePathKey,data.poster_path));
+		posterImg.attr('alt',data.original_title);
+		bigPosterImg.attr('src',imagePath.replace(replaceImageSizeKey,'w500').replace(replaceImagePathKey,data.poster_path));
 		backImg.attr('src',imagePath.replace(replaceImageSizeKey,'original').replace(replaceImagePathKey,data.backdrop_path));
 		title.text(data.title);
 		length.text(data.runtime);
@@ -52,15 +57,58 @@ document.addEventListener('DOMContentLoaded',function(){
 		data.genres.forEach(function(genreItem){
 			genresTag = genresTag.concat(genreItem.name).concat(',');
 		});
-
+		genresTag=genresTag.slice(0,-1);
 		genre.text(genresTag);
+
 		description.text(data.overview);
 		rating.text(data.vote_average);
 
-		let stars = starRating.toArray();
+		data.production_companies.forEach(function(company){
+		
+			if(company.logo_path!=null){
+				
+				let image = $('<img/>',{
+					src:imagePath.replace(replaceImageSizeKey,'w200').replace(replaceImagePathKey,company.logo_path),
+					class:'w-[100px] h-[100px] m-3 object-center object-cover shadow-2xl'
+				});
+
+				let div = $('<div>',{
+					class:'flex border-2 md:border-0 md:inline-block',
+				});
+
+				image.appendTo(div);
+				div.append(`<div class='md:hidden'>
+								<span class='font-bold'>Nombre: </span><span>${company.name}</span><br>
+								<span class='font-bold'>Pais: </span><span>${company.origin_country}</span>
+							</div>`);
+
+				div.appendTo(carousel);
+
+			}
+
+		});
+
+		creteEventeListeners();
 
 	}
 
+
+	function creteEventeListeners(){
+		
+		posterImg.hover(function(){
+			$('.big-poster-js').toggleClass('hidden');
+		});
+
+
+		$('.play-btn-js').hover(function(){
+			$('.background-box-js').toggleClass('md:blur-sm');
+			backImg.toggleClass('scale-medium');
+		});
+
+	}
+
+
+	//ON FAIL REQUEST
 	function onFail(xhr,status,error){
 	
 		if(xhr.responseJSON!=undefined){
@@ -71,6 +119,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	}
 
+	//SHOW WARNING
 	function showWarning(msg){
 		warning.toggleClass('hidden');
 		errMsg.text(msg);

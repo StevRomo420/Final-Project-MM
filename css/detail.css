@@ -40,7 +40,6 @@
 
 
 .overlap-box {
-	background: #1988a4;
 	display: grid;
 	grid-template-areas: 'upperBox';
 	grid-template-columns: 1fr;
@@ -49,4 +48,10 @@
 
 .overlap-item{
 	grid-area: upperBox;
+}
+
+
+.scale-medium {
+	transform: scale(1.5);
+	transition: 500ms;
 }
