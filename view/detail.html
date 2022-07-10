@@ -26,6 +26,18 @@
     </style>
     
 
+    <div class="video-box-js video-box flex flex-col fixed left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.7)] z-20 hidden">
+        <div class=" video-box-controls">
+            <svg xmlns="http://www.w3.org/2000/svg" class="close-video-box-btn-js cursor-pointer h-12 w-12 m-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </div>
+        <div class="video-container flex-1">
+            <iframe class="w-full h-full p-8" src="https://www.youtube.com/embed/nFBthWdsoqM" frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
     <header class="">
         <input type="checkbox" id="drowpDownControl" class="hidden">
         <input type="checkbox" id="searchControl" class="hidden">
@@ -128,11 +140,11 @@
                     <img class="back-img-js w-full h-full object-center object-cover">
                 </div>
 
-                <svg viewBox="0 0 500 150" preserveAspectRatio="none" height="100%" width="100%" class="z-20 overlap-item top-0 left-0">
+                <svg viewBox="0 0 500 150" preserveAspectRatio="none" height="100%" width="100%" class="z-10 overlap-item top-0 left-0">
                     <path d="M0.00,49.98 C72.51,68.58 115.97,83.38 268.90,113.97 L500.00,150.00 L0.00,150.00 Z" class="fill-[#f3f4f6]"></path>
                 </svg>        
                 
-                <div class="controls-box overlap-item flex flex-col z-20">
+                <div class="controls-box overlap-item flex flex-col z-10">
                     <ul class="flex justify-between">
                         <li class="m-1">
                            <a href="#" class="hover:text-[rgb(131,238,255)] inline-block text-gray-500">
@@ -180,12 +192,7 @@
                 <div class="rating-box flex justify-between ">
                     <div class="stars flex place-items-center md:text-xl">
 
-                        <div>
-                            <span class="stars-js fa fa-star"></span>
-                            <span class="stars-js fa fa-star"></span>
-                            <span class="stars-js fa fa-star"></span>
-                            <span class="stars-js fa fa-star"></span>
-                            <span class="stars-js fa fa-star"></span>
+                        <div class="stars-js">
                         </div>
                         
 
@@ -199,14 +206,14 @@
                         <ul class="flex">
                             <li>
                                 <a href="#" class="inline-block m-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="hover:fill-[gold] bi bi-arrow-down-circle" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
                                     </svg>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="inline-block m-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-star" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="hover:fill-[gold] bi bi-star" viewBox="0 0 16 16">
                                         <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
                                     </svg> 
                                 </a> 
@@ -228,7 +235,7 @@
             </div>
             
 
-            <div class="production-companies-carousel  mb-20 my-2 mx-3 md:mx-20 lg:mx-40 xl:mx-80 overflow-hidden">
+            <div class="production-companies-carousel mb-20 my-2 mx-3 md:mx-20 lg:mx-40 xl:mx-80 overflow-hidden">
                 <div class="flex py-2">
                     <span class="font-bold text-md">Compañías de Producción:</span>
                 </div>
@@ -285,11 +292,6 @@
             </ul>
         </nav>
     </footer>
-
-
- 
-
-        
 
 
 </body>

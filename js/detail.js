@@ -88,6 +88,26 @@ document.addEventListener('DOMContentLoaded',function(){
 
 		});
 
+		const maxStars = 5;
+		let voteStars = (Math.round(data.vote_average)/2);
+
+		for (let i = 0; i<maxStars; i++) {
+
+			let classTag='';
+			
+			if(voteStars>=1){
+				classTag='fa fa-star';
+			}else if((voteStars<1) && (voteStars>0)){
+				classTag='fa fa-star-half-o';
+			}else{
+				classTag='fa fa-star-o';
+			}
+
+			voteStars--;
+
+			$('<span>',{class:classTag}).appendTo(starRating);
+		}
+
 		creteEventeListeners();
 
 	}
@@ -103,6 +123,15 @@ document.addEventListener('DOMContentLoaded',function(){
 		$('.play-btn-js').hover(function(){
 			$('.background-box-js').toggleClass('md:blur-sm');
 			backImg.toggleClass('scale-medium');
+		});
+
+		$('.play-btn-js').click(function(){
+			$('.video-box-js').toggleClass('hidden');
+			$(window).scrollTop($('.video-box-js').position().top);
+		});
+
+		$('.close-video-box-btn-js').click(function(){
+			$('.video-box-js').toggleClass('hidden');
 		});
 
 	}
