@@ -76,20 +76,23 @@ document.addEventListener('DOMContentLoaded',function(){
 
 		createEventListeners();
 
+		$(document).attr('title', `${data.title} | Detalles de la pelicula`);
+
 	}
 
 
 	function findVideo(id){
 		
+		console.log(movieImages.replace(replaceKey,id));
+
 		apiRequest({
 			url:moviePath.replace(replaceKey,id),
 			onSuccess:function(data){
 				const result=data.results;
 				if(result.length>0){
 					if(result[0].site=='YouTube'){
-						
 						videoIframe.data('video',result[0].key);
-						createPLayVideoEventListeners();
+						createPLayVideoEventListeners(result[0].key);
 					}
 				}
 			},
@@ -146,7 +149,7 @@ document.addEventListener('DOMContentLoaded',function(){
 				
 				let image = $('<img/>',{
 					src:imagePath.replace(replaceImageSizeKey,'w200').replace(replaceImagePathKey,company.logo_path),
-					class:'w-[100px] h-[100px] m-3 object-center object-cover shadow-2xl'
+					class:'w-[100px] h-[100px] m-3 object-center object-contain shadow-2xl'
 				});
 
 				let div = $('<div>',{
@@ -167,20 +170,17 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	}
 
-	function createPLayVideoEventListeners(){
-		
-		if(videoIframe.data('video')){
+	function createPLayVideoEventListeners(key){
 
-			$('.play-btn-js').click(function(){	
-				videoIframe.attr('src',youtubeEmbedPath.replace(youtubeReplaceKey,videoIframe.data('video')));
-				$('.video-box-js').toggleClass('hidden');
-			});
+		$('.play-btn-js').click(function(){	
+			videoIframe.attr('src',youtubeEmbedPath.replace(youtubeReplaceKey,videoIframe.data('video')));
+			$('.video-box-js').toggleClass('hidden');
+		});
 
-			$('.close-video-box-btn-js').click(function(){
-				$('.video-box-js').toggleClass('hidden');
-				videoIframe.attr('src','');
-			});
-		}
+		$('.close-video-box-btn-js').click(function(){
+			$('.video-box-js').toggleClass('hidden');
+			videoIframe.attr('src','');
+		});
 
 	}
 
