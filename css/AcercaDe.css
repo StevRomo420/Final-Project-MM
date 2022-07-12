@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+html, body{
+    font-family: 'Roboto', sans-serif;
+    background: white !important;
+    max-height: 100%;
+}
+
+.container{
+    margin: 1rem auto;
+    text-align: center;
+    width: 80%;
+}
+.titulo{ 
+    margin-bottom: 1rem;
+}
+
+.titulo h1{
+    color: black;
+    border-bottom: 1px solid #3cbcac;
+    line-height: 2em;
+    font-weight: 300;
+}
+
+.articulo{
+    color: white;
+    background-color: #abe9cd;
+    background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 80%);
+    padding: 1em 1em 1em 1em;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.articulo h2{
+     font-weight: 500;
+}
+.articulo h3{
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+.articulo h4{
+    font-weight: 400;
+}
+
+footer{
+margin-top: 2rem;
+text-align: center;
+}
+
+.container div img{
+    margin-top: 1rem;
+    width: 50%;
+}
+footer svg{
+    bottom:  0;
+    position: fixed;
+    left: 0;
+}
+
+
+
+@media only screen and (min-width: 768px) and (orientation: landscape){
+    #btn_barra_volver{
+      display: none;
+    }
+    .container_header{
+        background-color:#00C6CF;
+    }
+    footer svg{
+        bottom: -2rem;
+    }
+    #lista{
+        display: flex !important;
+    }
+    .menu_dinamico nav ul li a{
+        color: white !important;
+    }
+
+  }
+  @media only screen and (min-width: 1000px) and (orientation: landscape){
+    footer svg{
+        position: absolute;
+        bottom: -20rem;
+    }
+    .container div img{
+        margin-bottom: 10rem;
+    }
+  }
+@media only screen and (min-height: 1023px) and (orientation: landscape){
+    footer svg{
+        bottom: -10rem;
+    }
+  }
