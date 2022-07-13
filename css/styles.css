@@ -107,3 +107,16 @@
 .banner:hover .current-tag{
     text-decoration: underline;
 }
+
+
+#genresDropdownMenu:checked ~ .genres-collection{
+    display: block;
+}
+
+#genresDropdownMenu:checked ~ .genres-title-box .arrow-left{
+    display: none;
+}
+
+#genresDropdownMenu:checked ~ .genres-title-box .arrow-down{
+    display: block;
+}
