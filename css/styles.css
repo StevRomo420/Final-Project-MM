@@ -73,3 +73,37 @@
     place-items:center;
     text-align: center;
 }
+
+
+/**/
+
+.overlap-box {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: 'upperBox';
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.overlap-item{
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: upperBox;
+}
+
+.banner:hover .banner-bg{
+    filter: blur(0);
+    transition: 200ms;
+}
+
+.banner:hover .banner-img{
+    transform: scale(1.5);
+    transition: 1s;
+}
+
+
+.banner:hover .current-tag{
+    text-decoration: underline;
+}

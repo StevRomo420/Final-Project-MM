@@ -9,7 +9,16 @@
     <LINK REL=StyleSheet HREF="css/styles.css" TYPE="text/css" MEDIA=screen>
     <title>Movie trends</title>
 </head>
-<body class="bg-gray-100 font-mono">
+<body class="bg-gray-300 font-mono">
+
+    <style type="text/css">
+
+        *{
+            /*border: solid 1px red;*/
+        }
+
+
+    </style>
 
 
     <header class="z-20">
@@ -116,554 +125,216 @@
 
 
 
-    <main class="bg-gray-300 md:grid md:grid-cols-2 xl:grid-cols-3">
+    <main class="">
 
-        
-        <div class="min-h-full bg-gray-100 py-6 flex flex-col justify-center   md:px-6 sm:py-12">
-  
-            <div class="py-3 sm:max-w-xl sm:mx-auto">
-              <div class="bg-white shadow-lg border-gray-100 max-h-80 border p-8 flex space-x-8">
-                    <figure class="image-box h-80 overflow-visible w-1/2">
-                        <div class="item-image flex-container">
-                            <img class="inside-img scale-100 pt-6" src="./img/La_Maldicion_del_perla.jpg" alt=""> 
-                            <p class="rating rounded-full bg-teal-300">7.8</p>
+        <div class="banner current-view max-h-[20vh] min-h-[20vh] h-[20vh] overlap-box overflow-hidden">
+            <div class="banner-bg overlap-item overflow-hidden blur-[1px] md:blur-[3px] z-10">
+                <img class="banner-img w-full h-full object-center object-cover" src="./img/popcorn.jpg">
+            </div>
+            <div class="overlap-item z-20 flex">
+                <div class="self-center flex-1">
+                    <h2 class="current-tag text-center text-white font-bold text-3xl md:text-6xl uppercase">Estrenos</h2>
+                </div>
+            </div>
+        </div>
 
-                            <div class="over-play flex-container">
-                                <a href="#" class="hover:animate-bounce"> 
+        <div class="genres-container bg-white">
+            Genres
+        </div>
+
+        <div class="flex justify-center">
+
+            <div class="my-4 mx-1 flex flex-col flex-1 md:grid md:flex-none md:grid-cols-[1fr,1fr] md:gap-3 xl:grid-cols-[1fr,1fr,1fr] 2xl:grid-cols-[1fr,1fr,1fr,1fr]">
+
+                <div class="movie-item flex bg-gray-100 px-2 rounded shadow-4xl border-b-4 m-2 md:m-0">
+                    <div class="left-container w-[240px] md:w-[150px] overlap-box 2xl:w-[170px]">
+                        <img src="./img/End_world.jpg" class="overlap-item relative w-full h-full object-cover object-center top-[-2px]"/>
+                        <div class="overlap-item z-20 self-end mb-2 flex flex-col">
+                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px]">8.2</span>
+                        </div>
+                        <div class="overlap-item z-20 self-center flex justify-center">
+                            <a href="#" class="hover:animate-bounce"> 
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                     <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                                  </svg>
-                                </a>
-
-                            </div>
-                        
-                            
-                        </div>               
-                      
-                    </figure>
-                    <div class="flex flex-col w-1/2 space-y-2">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold leading-4">Piratas del caribe</h2>
-                            
+                                </svg>
+                            </a>
                         </div>
-                        <div class=" sm:pb-4 md:pb-4">
-                            <div class="text-xs text-gray-400 pb-1 md:pb-4">Aventura Fantasía Acción</div>
-                            <div class="text-md bg-orange-500 rounded-3xl w-16  text-white">143 min</div>
-                        </div>
-                        <p class=" text-gray-400 max-h-40 no-scrollbar text-sm overflow-y-scroll leading-4 sm:overflow-y-scroll">El aventurero capitán Jack Sparrow recorre las aguas caribeñas. Pero su andanzas terminan cuando su enemigo,
-                             el capitán Barbossa le roba su barco, la Perla Negra, y ataca la ciudad de Port Royal, secuestrando a Elizabeth Swann, hija del gobernador.<a href="#" class="underline text-teal-300">Detalle</a></p>
-                            
-                            <div class="flex gap-4 pl-48 pt-1">
-                                
-                            </div>
-
-                            <div class="flex items-center content-center justify-center h-6 bg-white gap-8 pl-28 sm:pt-8 md:pt-8 ">
-                                <a  href="#" class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                                      </svg>
-                                </a>
-                                <a  href="#" class="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-star" viewBox="0 0 16 16">
-                                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                                        </svg>
-                                </a>
-                    
-                            </div>
                     </div>
-          
-              </div>
-            </div>
-            
-          </div>
-
-           
-        <div class="min-h-full bg-gray-100 py-6 flex flex-col justify-center   md:px-6 sm:py-12">
-  
-            <div class="py-3 sm:max-w-xl sm:mx-auto">
-              <div class="bg-white shadow-lg border-gray-100 max-h-80 border p-8 flex space-x-8">
-                    <figure class="image-box h-80 overflow-visible w-1/2">
-                        <div class="item-image flex-container">
-                            <img class="inside-img scale-100 pt-6" src="./img/Dead_Man_Chest.jpg" alt=""> 
-                            <p class="rating rounded-full bg-teal-300">7.3</p>
-
-                            <div class="over-play flex-container">
-                                <a href="#" class="hover:animate-bounce"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                                      </svg>
-                                    </a>
-
-                            </div>
-                        
-                            
-                        </div>               
-                      
-                    </figure>
-                    <div class="flex flex-col w-1/2 space-y-2">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold leading-4">Piratas del Caribe 2 </h2>
-                            
+                    <div class="right-container md:w-[180px] ml-2 p-1 2xl:w-[150px]">
+                        <span class="item-title block font-bold text-xl text-center ">El Club de la Pelea</span>
+                        <hr>
+                        <span class="item-genres block break-all text-sm text-gray-500 tracking-tighter">Accion, Drama, Crimen, Aventura</span>
+                        <span class="item-length-span block p-1">
+                            <span class="item-length bg-orange-500 text-white font-bold rounded p-1"><span class="item-length">105</span>min</span>
+                        </span>
+                        <div class="description-box flex flex-col font-sans">
+                            <p class="tracking-tight break-all p-1">
+                                <span class="item-description">
+                                    Lorem ipsum asdnadnsd;asnd;asdnas;dnas a'd'sad,as ipsum
+                                </span>
+                            </p>
+                            <a href="view/detail.html?movie=550" class="inline-block self-end text-teal-400 hover:text-teal-300 hover:underline">detalles</a>
                         </div>
-                        <div class=" sm:pb-4 md:pb-4">
-                            <div class="text-xs text-gray-400 pb-1 md:pb-4">Aventura Fantasía Acción</div>
-                            <div class="text-md bg-orange-500 rounded-3xl w-16  text-white">151 min</div>
+                        <div class="control-box">
+                             <div class="flex justify-end">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path>
+                                </svg> 
+                             </div>
                         </div>
-                        <p class=" text-gray-400 max-h-40 no-scrollbar text-sm overflow-y-scroll leading-4 sm:overflow-y-scroll">Will Turner y Elizabeth Swann se van a casar, pero ambos son hechos prisioneros por Lord Cutler Beckett y
-                             acusados de haber liberado al capitán Jack Sparrow.<a href="#" class="underline text-teal-300">Detalle</a></p>
-                            
-                            <div class="flex gap-4 pl-48 pt-1">
-                                
-                            </div>
-
-                            <div class="flex items-center content-center justify-center h-6 bg-white gap-8 pl-28 sm:pt-8 md:pt-8 ">
-                                <a  href="#" class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                                      </svg>
-                                </a>
-                                <a  href="#" class="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-star" viewBox="0 0 16 16">
-                                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                                        </svg>
-                                </a>
-                    
-                            </div>
                     </div>
-          
-              </div>
-            </div>
-            
-          </div>
+                </div>
 
-           
-        <div class="min-h-full bg-gray-100 py-6 flex flex-col justify-center   md:px-6 sm:py-12">
-  
-            <div class="py-3 sm:max-w-xl sm:mx-auto">
-              <div class="bg-white shadow-lg border-gray-100 max-h-80 border p-8 flex space-x-8">
-                    <figure class="image-box h-80 overflow-visible w-1/2">
-                        <div class="item-image flex-container">
-                            <img class="inside-img scale-100 pt-6" src="./img/The_Batman.jpg" alt=""> 
-                            <p class="rating rounded-full bg-teal-300">7.8</p>
-
-                            <div class="over-play flex-container">
-                                <a href="#" class="hover:animate-bounce"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                                      </svg>
-                                    </a>
-
-                            </div>
-                        
-                            
-                        </div>               
-                      
-                    </figure>
-                    <div class="flex flex-col w-1/2 space-y-2">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold">The Batman</h2>
-                            
+                <div class="movie-item flex  bg-gray-100 px-2 rounded shadow-4xl border-b-4 m-2 md:m-0">
+                    <div class="left-container w-[240px] md:w-[150px] overlap-box 2xl:w-[170px]">
+                        <img src="./img/End_world.jpg" class="overlap-item relative w-full h-full object-cover object-center top-[-2px]"/>
+                        <div class="overlap-item z-20 self-end mb-2 flex flex-col">
+                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px]">8.2</span>
                         </div>
-                        <div class=" sm:pb-4 md:pb-4">
-                            <div class="text-xs text-gray-400 pb-1 md:pb-4">Crimen Misterio Suspense</div>
-                            <div class="text-md bg-orange-500 rounded-3xl w-16  text-white">176 min</div>
-                        </div>
-                        <p class="text-gray-400 max-h-40 no-scrollbar text-sm overflow-y-scroll leading-4 sm:overflow-y-scroll">Cuando un asesino se dirige a la élite de Gotham con una serie de maquinaciones sádicas, 
-                            un rastro de pistas crípticas envía Batman a una investigación en los bajos fondos.<a href="#" class="underline text-teal-300">Detalle</a></p>
-                            
-                            <div class="flex gap-4 pl-48 pt-1">
-                                
-                            </div>
-
-                            <div class="flex items-center content-center justify-center h-6 bg-white gap-8 pl-28 sm:pt-8 md:pt-8 ">
-                                <a  href="#" class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                                      </svg>
-                                </a>
-                                <a  href="#" class="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-star" viewBox="0 0 16 16">
-                                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                                        </svg>
-                                </a>
-                    
-                            </div>
-                    </div>
-          
-              </div>
-            </div>
-            
-          </div>
-
-           
-        <div class="min-h-full bg-gray-100 py-6 flex flex-col justify-center   md:px-6 sm:py-12">
-  
-            <div class="py-3 sm:max-w-xl sm:mx-auto">
-              <div class="bg-white shadow-lg border-gray-100 max-h-80 border  p-8 flex space-x-8">
-                    <figure class="image-box h-80 overflow-visible w-1/2">
-                        <div class="item-image flex-container">
-                        <img class="inside-img scale-100 pt-6" src="./img/Morbius.jpg" alt="">
-                            <p class="rating rounded-full bg-teal-300">7.8</p>
-
-                            <div class="over-play flex-container">
-                                <a href="#" class="hover:animate-bounce"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                                      </svg>
-                                    </a>
-
-                            </div>
-                        
-                            
-                        </div>               
-                      
-                    </figure>
-                    <div class="flex flex-col w-1/2 space-y-2">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold">Morbius</h2>
-                            
-                        </div>
-                        <div class=" sm:pb-4 md:pb-4">
-                            <div class="text-xs text-gray-400 pb-1 md:pb-4">Acción ficción Fantasía</div>
-                            <div class="text-md bg-orange-500 rounded-3xl w-16  text-white">105 min</div>
-                        </div>
-                        <p class=" text-gray-400 max-h-40 no-scrollbar text-sm overflow-y-scroll leading-4 sm:overflow-y-scroll">Peligrosamente enfermo de un extraño trastorno sanguíneo, 
-                            y determinado a salvar a otras personas que padecen su mismo destino, el doctor Morbius intenta una apuesta desesperada. <a href="#" class="underline text-teal-300">Detalle</a></p>
-                            
-                            <div class="flex gap-4 pl-48 pt-1">
-                                
-                            </div>
-
-                            <div class="flex items-center content-center justify-center h-6 bg-white gap-8 pl-28 sm:pt-8 md:pt-8 ">
-                                <a  href="#" class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                                      </svg>
-                                </a>
-                                <a  href="#" class="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-star" viewBox="0 0 16 16">
-                                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                                        </svg>
-                                </a>
-                    
-                            </div>
-                    </div>
-          
-              </div>
-            </div>
-            
-          </div>
-
-          <div class="min-h-full bg-gray-100 py-6 flex flex-col justify-center   md:px-6 sm:py-12">
-  
-            <div class="py-3 sm:max-w-xl sm:mx-auto">
-              <div class="bg-white shadow-lg border-gray-100 max-h-80 border p-8 flex space-x-8">
-                    <figure class="image-box h-80 overflow-visible w-1/2">
-                        <div class="item-image flex-container">
-                            <img class="inside-img scale-100 pt-6" src="./img/La_Maldicion_del_perla.jpg" alt=""> 
-                            <p class="rating rounded-full bg-teal-300">7.8</p>
-
-                            <div class="over-play flex-container">
-                                <a href="#" class="hover:animate-bounce"> 
+                        <div class="overlap-item z-20 self-center flex justify-center">
+                            <a href="#" class="hover:animate-bounce"> 
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                     <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                                  </svg>
-                                </a>
-
-                            </div>
-                        
-                            
-                        </div>               
-                      
-                    </figure>
-                    <div class="flex flex-col w-1/2 space-y-2">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold leading-4">Piratas del caribe</h2>
-                            
+                                </svg>
+                            </a>
                         </div>
-                        <div class=" sm:pb-4 md:pb-4">
-                            <div class="text-xs text-gray-400 pb-1 md:pb-4">Aventura Fantasía Acción</div>
-                            <div class="text-md bg-orange-500 rounded-3xl w-16  text-white">143 min</div>
-                        </div>
-                        <p class=" text-gray-400 max-h-40 no-scrollbar text-sm overflow-y-scroll leading-4 sm:overflow-y-scroll">El aventurero capitán Jack Sparrow recorre las aguas caribeñas. Pero su andanzas terminan cuando su enemigo,
-                             el capitán Barbossa le roba su barco, la Perla Negra, y ataca la ciudad de Port Royal, secuestrando a Elizabeth Swann, hija del gobernador.<a href="#" class="underline text-teal-300">Detalle</a></p>
-                            
-                            <div class="flex gap-4 pl-48 pt-1">
-                                
-                            </div>
-
-                            <div class="flex items-center content-center justify-center h-6 bg-white gap-8 pl-28 sm:pt-8 md:pt-8 ">
-                                <a  href="#" class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                                      </svg>
-                                </a>
-                                <a  href="#" class="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-star" viewBox="0 0 16 16">
-                                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                                        </svg>
-                                </a>
-                    
-                            </div>
                     </div>
-          
-              </div>
-            </div>
-            
-          </div>
-
-           
-        <div class="min-h-full bg-gray-100 py-6 flex flex-col justify-center   md:px-6 sm:py-12">
-  
-            <div class="py-3 sm:max-w-xl sm:mx-auto">
-              <div class="bg-white shadow-lg border-gray-100 max-h-80 border p-8 flex space-x-8">
-                    <figure class="image-box h-80 overflow-visible w-1/2">
-                        <div class="item-image flex-container">
-                            <img class="inside-img scale-100 pt-6" src="./img/Dead_Man_Chest.jpg" alt=""> 
-                            <p class="rating rounded-full bg-teal-300">7.3</p>
-
-                            <div class="over-play flex-container">
-                                <a href="#" class="hover:animate-bounce"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                                      </svg>
-                                    </a>
-
-                            </div>
-                        
-                            
-                        </div>               
-                      
-                    </figure>
-                    <div class="flex flex-col w-1/2 space-y-2">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold leading-4">Piratas del Caribe 2 </h2>
-                            
+                    <div class="right-container md:w-[180px] ml-2 p-1 2xl:w-[150px]">
+                        <span class="item-title block font-bold text-xl text-center ">El Club de la Pelea</span>
+                        <hr>
+                        <span class="item-genres block break-all text-sm text-gray-500 tracking-tighter">Accion, Drama, Crimen, Aventura</span>
+                        <span class="item-length-span block p-1">
+                            <span class="item-length bg-orange-500 text-white font-bold rounded p-1"><span class="item-length">105</span>min</span>
+                        </span>
+                        <div class="description-box flex flex-col font-sans">
+                            <p class="tracking-tight break-all p-1">
+                                <span class="item-description">
+                                    Lorem ipsum asdnadnsd;asnd;asdnas;dnas a'd'sad,as ipsum
+                                </span>
+                            </p>
+                            <a href="view/detail.html?movie=550" class="inline-block self-end text-teal-400 hover:text-teal-300 hover:underline">detalles</a>
                         </div>
-                        <div class=" sm:pb-4 md:pb-4">
-                            <div class="text-xs text-gray-400 pb-1 md:pb-4">Aventura Fantasía Acción</div>
-                            <div class="text-md bg-orange-500 rounded-3xl w-16  text-white">151 min</div>
+                        <div class="control-box">
+                             <div class="flex justify-end">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path>
+                                </svg> 
+                             </div>
                         </div>
-                        <p class=" text-gray-400 max-h-40 no-scrollbar text-sm overflow-y-scroll leading-4 sm:overflow-y-scroll">Will Turner y Elizabeth Swann se van a casar, pero ambos son hechos prisioneros por Lord Cutler Beckett y
-                             acusados de haber liberado al capitán Jack Sparrow.<a href="#" class="underline text-teal-300">Detalle</a></p>
-                            
-                            <div class="flex gap-4 pl-48 pt-1">
-                                
-                            </div>
-
-                            <div class="flex items-center content-center justify-center h-6 bg-white gap-8 pl-28 sm:pt-8 md:pt-8 ">
-                                <a  href="#" class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                                      </svg>
-                                </a>
-                                <a  href="#" class="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-star" viewBox="0 0 16 16">
-                                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                                        </svg>
-                                </a>
-                    
-                            </div>
                     </div>
-          
-              </div>
-            </div>
-            
-          </div>
+                </div>
 
-           
-        <div class="min-h-full bg-gray-100 py-6 flex flex-col justify-center   md:px-6 sm:py-12">
-  
-            <div class="py-3 sm:max-w-xl sm:mx-auto">
-              <div class="bg-white shadow-lg border-gray-100 max-h-80 border p-8 flex space-x-8">
-                    <figure class="image-box h-80 overflow-visible w-1/2">
-                        <div class="item-image flex-container">
-                            <img class="inside-img scale-100 pt-6" src="./img/The_Batman.jpg" alt=""> 
-                            <p class="rating rounded-full bg-teal-300">7.8</p>
-
-                            <div class="over-play flex-container">
-                                <a href="#" class="hover:animate-bounce"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                                      </svg>
-                                    </a>
-
-                            </div>
-                        
-                            
-                        </div>               
-                      
-                    </figure>
-                    <div class="flex flex-col w-1/2 space-y-2">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold">The Batman</h2>
-                            
+                <div class="movie-item flex bg-gray-100 px-2 rounded shadow-4xl border-b-4 m-2 md:m-0">
+                    <div class="left-container w-[240px] md:w-[150px] overlap-box 2xl:w-[170px]">
+                        <img src="./img/End_world.jpg" class="overlap-item relative w-full h-full object-cover object-center top-[-2px]"/>
+                        <div class="overlap-item z-20 self-end mb-2 flex flex-col">
+                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px]">8.2</span>
                         </div>
-                        <div class=" sm:pb-4 md:pb-4">
-                            <div class="text-xs text-gray-400 pb-1 md:pb-4">Crimen Misterio Suspense</div>
-                            <div class="text-md bg-orange-500 rounded-3xl w-16  text-white">176 min</div>
-                        </div>
-                        <p class="text-gray-400 max-h-40 no-scrollbar text-sm overflow-y-scroll leading-4 sm:overflow-y-scroll">Cuando un asesino se dirige a la élite de Gotham con una serie de maquinaciones sádicas, 
-                            un rastro de pistas crípticas envía Batman a una investigación en los bajos fondos.<a href="#" class="underline text-teal-300">Detalle</a></p>
-                            
-                            <div class="flex gap-4 pl-48 pt-1">
-                                
-                            </div>
-
-                            <div class="flex items-center content-center justify-center h-6 bg-white gap-8 pl-28 sm:pt-8 md:pt-8 ">
-                                <a  href="#" class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                                      </svg>
-                                </a>
-                                <a  href="#" class="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-star" viewBox="0 0 16 16">
-                                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                                        </svg>
-                                </a>
-                    
-                            </div>
-                    </div>
-          
-              </div>
-            </div>
-            
-          </div>
-
-           
-        <div class="min-h-full bg-gray-100 py-6 flex flex-col justify-center   md:px-6 sm:py-12">
-  
-            <div class="py-3 sm:max-w-xl sm:mx-auto">
-              <div class="bg-white shadow-lg border-gray-100 max-h-80 border  p-8 flex space-x-8">
-                    <figure class="image-box h-80 overflow-visible w-1/2">
-                        <div class="item-image flex-container">
-                        <img class="inside-img scale-100 pt-6" src="./img/Morbius.jpg" alt="">
-                            <p class="rating rounded-full bg-teal-300">7.8</p>
-
-                            <div class="over-play flex-container">
-                                <a href="#" class="hover:animate-bounce"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                                      </svg>
-                                    </a>
-
-                            </div>
-                        
-                            
-                        </div>               
-                      
-                    </figure>
-                    <div class="flex flex-col w-1/2 space-y-2">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold">Morbius</h2>
-                            
-                        </div>
-                        <div class=" sm:pb-4 md:pb-4">
-                            <div class="text-xs text-gray-400 pb-1 md:pb-4">Acción ficción Fantasía</div>
-                            <div class="text-md bg-orange-500 rounded-3xl w-16  text-white">105 min</div>
-                        </div>
-                        <p class=" text-gray-400 max-h-40 no-scrollbar text-sm overflow-y-scroll leading-4 sm:overflow-y-scroll">Peligrosamente enfermo de un extraño trastorno sanguíneo, 
-                            y determinado a salvar a otras personas que padecen su mismo destino, el doctor Morbius intenta una apuesta desesperada. <a href="#" class="underline text-teal-300">Detalle</a></p>
-                            
-                            <div class="flex gap-4 pl-48 pt-1">
-                                
-                            </div>
-
-                            <div class="flex items-center content-center justify-center h-6 bg-white gap-8 pl-28 sm:pt-8 md:pt-8 ">
-                                <a  href="#" class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                                      </svg>
-                                </a>
-                                <a  href="#" class="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-star" viewBox="0 0 16 16">
-                                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                                        </svg>
-                                </a>
-                    
-                            </div>
-                    </div>
-          
-              </div>
-            </div>
-            
-          </div>
-
-          
-          <div class="min-h-full bg-gray-100 py-6 flex flex-col justify-center   md:px-6 sm:py-12">
-  
-            <div class="py-3 sm:max-w-xl sm:mx-auto">
-              <div class="bg-white shadow-lg border-gray-100 max-h-80 border p-8 flex space-x-8">
-                    <figure class="image-box h-80 overflow-visible w-1/2">
-                        <div class="item-image flex-container">
-                            <img class="inside-img scale-100 pt-6" src="./img/La_Maldicion_del_perla.jpg" alt=""> 
-                            <p class="rating rounded-full bg-teal-300">7.8</p>
-
-                            <div class="over-play flex-container">
-                                <a href="#" class="hover:animate-bounce"> 
+                        <div class="overlap-item z-20 self-center flex justify-center">
+                            <a href="#" class="hover:animate-bounce"> 
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                     <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                                  </svg>
-                                </a>
-
-                            </div>
-                        
-                            
-                        </div>               
-                      
-                    </figure>
-                    <div class="flex flex-col w-1/2 space-y-2">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold leading-4">Piratas del caribe</h2>
-                            
+                                </svg>
+                            </a>
                         </div>
-                        <div class=" sm:pb-4 md:pb-4">
-                            <div class="text-xs text-gray-400 pb-1 md:pb-4">Aventura Fantasía Acción</div>
-                            <div class="text-md bg-orange-500 rounded-3xl w-16  text-white">143 min</div>
-                        </div>
-                        <p class=" text-gray-400 max-h-40 no-scrollbar text-sm overflow-y-scroll leading-4 sm:overflow-y-scroll">El aventurero capitán Jack Sparrow recorre las aguas caribeñas. Pero su andanzas terminan cuando su enemigo,
-                             el capitán Barbossa le roba su barco, la Perla Negra, y ataca la ciudad de Port Royal, secuestrando a Elizabeth Swann, hija del gobernador.<a href="#" class="underline text-teal-300">Detalle</a></p>
-                            
-                            <div class="flex gap-4 pl-48 pt-1">
-                                
-                            </div>
-
-                            <div class="flex items-center content-center justify-center h-6 bg-white gap-8 pl-28 sm:pt-8 md:pt-8 ">
-                                <a  href="#" class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                                      </svg>
-                                </a>
-                                <a  href="#" class="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgb(188,187,192)" class="bi bi-star" viewBox="0 0 16 16">
-                                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                                        </svg>
-                                </a>
-                    
-                            </div>
                     </div>
-          
-              </div>
+                    <div class="right-container md:w-[180px] ml-2 p-1 2xl:w-[150px]">
+                        <span class="item-title block font-bold text-xl text-center ">El Club de la Pelea</span>
+                        <hr>
+                        <span class="item-genres block break-all text-sm text-gray-500 tracking-tighter">Accion, Drama, Crimen, Aventura</span>
+                        <span class="item-length-span block p-1">
+                            <span class="item-length bg-orange-500 text-white font-bold rounded p-1"><span class="item-length">105</span>min</span>
+                        </span>
+                        <div class="description-box flex flex-col font-sans">
+                            <p class="tracking-tight break-all p-1">
+                                <span class="item-description">
+                                    Lorem ipsum asdnadnsd;asnd;asdnas;dnas a'd'sad,as ipsum
+                                </span>
+                            </p>
+                            <a href="view/detail.html?movie=550" class="inline-block self-end text-teal-400 hover:text-teal-300 hover:underline">detalles</a>
+                        </div>
+                        <div class="control-box">
+                             <div class="flex justify-end">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path>
+                                </svg> 
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-item flex bg-gray-100 px-2 rounded shadow-4xl border-b-4 m-2 md:m-0">
+                    <div class="left-container w-[240px] md:w-[150px] overlap-box 2xl:w-[170px]">
+                        <img src="./img/End_world.jpg" class="overlap-item relative w-full h-full object-cover object-center top-[-2px]"/>
+                        <div class="overlap-item z-20 self-end mb-2 flex flex-col">
+                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px]">8.2</span>
+                        </div>
+                        <div class="overlap-item z-20 self-center flex justify-center">
+                            <a href="#" class="hover:animate-bounce"> 
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="right-container md:w-[180px] ml-2 p-1 2xl:w-[150px]">
+                        <span class="item-title block font-bold text-xl text-center ">El Club de la Pelea</span>
+                        <hr>
+                        <span class="item-genres block break-all text-sm text-gray-500 tracking-tighter">Accion, Drama, Crimen, Aventura</span>
+                        <span class="item-length-span block p-1">
+                            <span class="item-length bg-orange-500 text-white font-bold rounded p-1"><span class="item-length">105</span>min</span>
+                        </span>
+                        <div class="description-box flex flex-col font-sans">
+                            <p class="tracking-tight break-all p-1">
+                                <span class="item-description">
+                                    Lorem ipsum asdnadnsd;asnd;asdnas;dnas a'd'sad,as ipsum
+                                </span>
+                            </p>
+                            <a href="view/detail.html?movie=550" class="inline-block self-end text-teal-400 hover:text-teal-300 hover:underline">detalles</a>
+                        </div>
+                        <div class="control-box">
+                             <div class="flex justify-end">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path>
+                                </svg> 
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             
-          </div>
-      
+        </div>
+
+
+         <div class="pages-navigation bottom-0">
+            PREV NEXT
+        </div>
+
     </main>
 
 
+   
 
 
 
-    <footer class="fixed inset-x-0 bottom-0 z-50 md:hidden z-20">
+    <footer class="sticky inset-x-0 bottom-0 z-50 md:hidden z-20">
 
         <nav>
             <ul class="flex items-center content-center justify-center h-12 bg-white gap-12 [&>li>a]:inline-block">
