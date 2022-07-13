@@ -15,6 +15,8 @@ let movieDetails 					= masterUrl.concat('movie/').concat(replaceKey).concat(api
 let movieImages	 					= masterUrl.concat('movie/').concat(replaceKey).concat('/images').concat(apiKeyAndLanguageParameter);
 let imagePath	 					= masterImagePath.concat(replaceImageSizeKey).concat('/').concat(replaceImagePathKey);
 let searchPath						= masterUrl.concat('search/movie').concat(apiKeyAndLanguageParameter).concat(`&query=${replaceSearchQueryKey}=&page=${replaceSearchPageKey}`);
+const genrePath						= masterUrl.concat('genre/movie/list').concat(apiKeyAndLanguageParameter);
+
 
 
 //AJAX REQUEST TO TMDB.API
