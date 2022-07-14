@@ -97,10 +97,10 @@ document.addEventListener('DOMContentLoaded',function(){
 
 					let movieItem = $('<div>',{
 
-						class:'movie-item flex bg-gray-100 px-2 rounded shadow-4xl border-b-4 m-2 md:m-0',
+						class:'movie-item flex bg-gray-100 px-2 rounded shadow-4xl border-b-4 m-2 md:m-0 justify-around',
 
 						html:`
-		                    <div class="left-container w-[125px] md:w-[150px] overlap-box 2xl:w-[170px]">
+		                    <div class="left-container w-[150px] md:w-[150px] overlap-box 2xl:w-[170px]">
 		                        <img src="${poster}" class="overlap-item relative w-full h-full object-cover object-center top-[-2px]"/>
 		                        <div class="overlap-item z-20 self-end mb-2 flex flex-col">
 		                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px]">8.2</span>
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded',function(){
 		                            </a>
 		                        </div>
 		                    </div>
-		                    <div class="right-container md:w-[180px] ml-2 p-1 2xl:w-[150px]">
+		                    <div class="right-container w-[45%] md:w-[180px] ml-2 p-1 2xl:w-[150px]">
 		                        <span class="item-title block font-bold text-xl text-center tracking-tight">${movie.title}</span>
 		                        <hr>
 		                        <span class="item-genres block break-all text-sm text-gray-500 tracking-tighter">${genresTag}</span>
