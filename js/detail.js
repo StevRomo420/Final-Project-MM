@@ -85,14 +85,24 @@ document.addEventListener('DOMContentLoaded',function(){
 		let backLink =`../?show_by=${showBy}&page=${page}`;
 
 
-		if(showBy=='genre'){
-			if(params.has('genre')){
-				let genre = Number(params.get('genre'));
-				if(!isNaN(genre)){
-					backLink = backLink.concat(`&genre=${genre}`);
+		switch(showBy){
+
+			case "genre":
+				if(params.has('genre')){
+					let genre = Number(params.get('genre'));
+					if(!isNaN(genre)){
+						backLink = backLink.concat(`&genre=${genre}`);
+					}
 				}
-			}
+				break;
+			case "search":
+				if(params.has('query')){
+					backLink = backLink.concat(`&query=${params.get('query')}`);
+				}
+				break;
+
 		}
+
 		
 		backBtn.attr('href',backLink);
 

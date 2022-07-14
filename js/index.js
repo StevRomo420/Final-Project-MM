@@ -8,22 +8,24 @@
 document.addEventListener('DOMContentLoaded',function(){
 
 	//PARAM
-	const params 			= new URLSearchParams(window.location.search);
+	const params 				= new URLSearchParams(window.location.search);
 
 	//PATHS
-	const pageReplaceKey 	= 'PAGE_NUMBER';
-	const replaceGenreKey	= 'GENRE_KEY';
+	const pageReplaceKey 		= 'PAGE_NUMBER';
+	const replaceGenreKey		= 'GENRE_KEY';
+	const replaceSearchQueryKey = 'SEARCH_QUERY';
 
-	const genrePath			= masterUrl.concat('genre/movie/list').concat(apiKeyAndLanguageParameter);
-	let nowPlayingMovies 	= masterUrl.concat('movie/now_playing').concat(apiKeyAndLanguageParameter).concat(`&page=${pageReplaceKey}`);
-	let popularMovies 		= masterUrl.concat('movie/popular').concat(apiKeyAndLanguageParameter).concat(`&page=${pageReplaceKey}`);
-	let listByGenre 		= `https://api.themoviedb.org/3/discover/movie${apiKeyAndLanguageParameter}&with_genres=${replaceGenreKey}&page=${pageReplaceKey}`;
+	const genrePath				= masterUrl.concat('genre/movie/list').concat(apiKeyAndLanguageParameter);
+	let nowPlayingMovies 		= masterUrl.concat('movie/now_playing').concat(apiKeyAndLanguageParameter).concat(`&page=${pageReplaceKey}`);
+	let popularMovies 			= masterUrl.concat('movie/popular').concat(apiKeyAndLanguageParameter).concat(`&page=${pageReplaceKey}`);
+	let listByGenre 			= `https://api.themoviedb.org/3/discover/movie${apiKeyAndLanguageParameter}&with_genres=${replaceGenreKey}&page=${pageReplaceKey}`;
+	let searchPath				= masterUrl.concat('search/movie').concat(apiKeyAndLanguageParameter).concat(`&query=${replaceSearchQueryKey}=&page=${pageReplaceKey}`);
 
 
 	//COMPONENTES
-	const genresContainer 	= $('.genres-container-js');
-	const moviesContainer  	= $('.movies-js');
-	const currentTag  		= $('.current-tag-js');
+	const genresContainer 		= $('.genres-container-js');
+	const moviesContainer  		= $('.movies-js');
+	const currentTag  			= $('.current-tag-js');
 
 	let genres=[];
 
@@ -37,6 +39,16 @@ document.addEventListener('DOMContentLoaded',function(){
 		let showBy = (params.has('show_by')?params.get('show_by'):'playing_now');
 
 		switch(showBy){
+			case "search":
+
+				let query = (params.has('query'))?params.get('query'):null;
+				loadMovies(((query==null)?nowPlayingMovies:searchPath.replace(replaceSearchQueryKey,query)),page,
+					`Busqueda: ${query}.`,{by:showBy,query:query});
+
+
+
+				break;
+
 			case "genre":
 
 				let genreTarget  = Number(params.has('genre')?params.get('genre'):genres[0].id);
@@ -80,7 +92,7 @@ document.addEventListener('DOMContentLoaded',function(){
 			url:url.replace(pageReplaceKey,page),
 			onSuccess:function(data){
 
-				const genreParams = `show_by=${showBy.by}&page=${pageReplaceKey}${(showBy.by=='genre')?`&genre=${showBy.gen}`:''}`;
+				const generalParams = `show_by=${showBy.by}&page=${pageReplaceKey}${(showBy.by=='genre')?`&genre=${showBy.gen}`:''}${(showBy.by=='search')?`&query=${showBy.query}`:''}`;
 
 				data.results.forEach(function(movie){
 
@@ -92,7 +104,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 					const poster = imagePath.replace(replaceImageSizeKey,'w400').replace(replaceImagePathKey,movie.poster_path)
 					
-					let detail = `view/detail.html?movie=${movie.id}&${genreParams.replace(pageReplaceKey,page)}`;
+					let detail = `view/detail.html?movie=${movie.id}&${generalParams.replace(pageReplaceKey,page)}`;
 					const description = ((movie.overview.length>60)?movie.overview.substring(0,60):movie.overview).concat('...');
 
 					let movieItem = $('<div>',{
@@ -145,10 +157,10 @@ document.addEventListener('DOMContentLoaded',function(){
 				});
 
 				if(page!=1){
-					$('.prev-js').attr('href',`./?${genreParams.replace(pageReplaceKey,(page-1))}`);
+					$('.prev-js').attr('href',`./?${generalParams.replace(pageReplaceKey,(page-1))}`);
 				}
 				$('.page-number-js').text(`Pagina ${page}`);
-				$('.next-js').attr('href',`./?${genreParams.replace(pageReplaceKey,(page+1))}`);
+				$('.next-js').attr('href',`./?${generalParams.replace(pageReplaceKey,(page+1))}`);
 
 			},
 			onFail:function(xhr,status,erro){

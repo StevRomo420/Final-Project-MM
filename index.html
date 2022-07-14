@@ -17,16 +17,6 @@
 </head>
 <body class="bg-gray-300 font-mono">
 
-    <style type="text/css">
-
-        *{
-            /*border: solid 1px red;*/
-        }
-
-
-    </style>
-
-
     <header class="z-20">
 
         <input type="checkbox" id="drowpDownControl" class="hidden">
@@ -92,10 +82,17 @@
         </div>
 
         <div class="search-box hidden">
-            <input type="text" placeholder="Buscar..." class="flex-1 md:flex-0  focus:outline-none border m-1 focus:border-teal-300 rounded">
-             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 m-1 border border-blue-700 rounded">
-                Buscar
-            </button>
+            <form action="./" method="GET" class="flex flex-1 justify-end">
+
+                    <input type="text" placeholder="Buscar..." class="flex-1 md:flex-none  md:w-[40%] focus:outline-none border m-1 focus:border-teal-300 rounded" name="query" required/>
+                    <input type="hidden" name="show_by" value="search"/>
+                    <input type="hidden" name="page" value="1"/>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 m-1 border border-blue-700 rounded">
+                        Buscar
+                    </button>
+                    
+            </form>
+
         </div>
 
         <div class="nav-box md:hidden">
