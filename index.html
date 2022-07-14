@@ -57,7 +57,7 @@
                     </li>
 
                      <li class="hidden md:flex">
-                        <a href="./?proof=22" class="py-2 px-2 text-gray-500 hover:text-teal-300  font-semibold hover:underline">
+                        <a href="./?show_by=now_playing" class="py-2 px-2 text-gray-500 hover:text-teal-300  font-semibold hover:underline">
                             Peliculas nuevas
                         </a>
                     </li>
@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li class="hidden md:flex">
-                        <a href="#" class="py-2 px-2 text-gray-500 font-semibold hover:text-teal-300 hover:underline">
+                        <a href="./?show_by=popular" class="py-2 px-2 text-gray-500 font-semibold hover:text-teal-300 hover:underline">
                             Populares
                         </a>
                     </li>
@@ -228,13 +228,13 @@
         <div class="pages-navigation bottom-0 mb-20 flex">
             <ul class="flex flex-1 justify-around mx-1 md:mx-20 bg-white rounded shadow-4xl [&>li]:flex [&>li>a]:rounded [&>li>a]:p-2 [&>li]:py-1 [&>li>a]:bg-gray-100">
                 <li>
-                    <a href="#" class="hover:text-teal-500 hover:bg-gray-200">Anterior</a>
+                    <a class="prev-js hover:text-teal-500 hover:bg-gray-200">Anterior</a>
                 </li>
                 <li>
-                   <a>Pagina 1</a>
+                   <a class="page-number-js"></a>
                 </li>
                 <li>
-                    <a href="#" class="hover:text-teal-500 hover:bg-gray-200">Siguiente</a>
+                    <a class="next-js hover:text-teal-500 hover:bg-gray-200">Siguiente</a>
                 </li>
             </ul>
         </div>

@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	const warning			= $('.warning-js');
 	const errMsg			= $('.error-msg-js');
 	const carousel			= $('.carousel-js');
+	const backBtn			= $('.back-js');
 	const videoIframe		= $('.video-iframe-js');
 
 	const youtubeReplaceKey = 'YT_KEY';
@@ -76,14 +77,32 @@ document.addEventListener('DOMContentLoaded',function(){
 
 		createEventListeners();
 
+
+		let page = Number(params.has('page')?params.get('page'):1);
+		page 	 = (isNaN(page))?1:page;
+
+		let showBy = (params.has('show_by')?params.get('show_by'):'playing_now');
+		let backLink =`../?show_by=${showBy}&page=${page}`;
+
+
+		if(showBy=='genre'){
+			if(params.has('genre')){
+				let genre = Number(params.get('genre'));
+				if(!isNaN(genre)){
+					backLink = backLink.concat(`&genre=${genre}`);
+				}
+			}
+		}
+		
+		backBtn.attr('href',backLink);
+
 		$(document).attr('title', `${data.title} | Detalles de la pelicula`);
 
 	}
 
 
 	function findVideo(id){
-		
-		console.log(movieImages.replace(replaceKey,id));
+
 
 		apiRequest({
 			url:moviePath.replace(replaceKey,id),

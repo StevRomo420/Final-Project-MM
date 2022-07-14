@@ -18,10 +18,10 @@ let searchPath						= masterUrl.concat('search/movie').concat(apiKeyAndLanguageP
 
 
 
-
 //AJAX REQUEST TO TMDB.API
 function apiRequest(dataSet){
 
+	console.log(dataSet.url);
 	$.ajax({
 
 		url: dataSet.url,
@@ -34,7 +34,8 @@ function apiRequest(dataSet){
 
 		error:(xhr, status, error)=>{
 			dataSet.onFail(xhr,status,error);
-		}
+		},
+		async:false
 	});
 
 }

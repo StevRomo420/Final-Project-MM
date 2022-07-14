@@ -12,10 +12,13 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	//PATHS
 	const pageReplaceKey 	= 'PAGE_NUMBER';
+	const replaceGenreKey	= 'GENRE_KEY';
 
 	const genrePath			= masterUrl.concat('genre/movie/list').concat(apiKeyAndLanguageParameter);
-	const latestMovies		= masterUrl.concat('movie/latest').concat(apiKeyAndLanguageParameter);
 	let nowPlayingMovies 	= masterUrl.concat('movie/now_playing').concat(apiKeyAndLanguageParameter).concat(`&page=${pageReplaceKey}`);
+	let popularMovies 		= masterUrl.concat('movie/popular').concat(apiKeyAndLanguageParameter).concat(`&page=${pageReplaceKey}`);
+	let listByGenre 		= `https://api.themoviedb.org/3/discover/movie${apiKeyAndLanguageParameter}&with_genres=${replaceGenreKey}&page=${pageReplaceKey}`;
+
 
 	//COMPONENTES
 	const genresContainer 	= $('.genres-container-js');
@@ -27,33 +30,57 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	//INITAL MOVIE FIND CALL
 	function beginOfIndex(){
+
+		let page = Number(params.has('page')?params.get('page'):1);
+		page 	 = (isNaN(page))?1:page;
 		
-		if(params.has('showBy')){
-			
-			const showBy = params.get('showBy');
+		let showBy = (params.has('show_by')?params.get('show_by'):'playing_now');
 
-			if(showBy){
+		switch(showBy){
+			case "genre":
 
-				console.log(showBy);
-			}else{
-
-				console.log('NOPE');
-			}
-
-		}else{
-			loadMovies(nowPlayingMovies.replace(pageReplaceKey,1),'peliculas nuevas');
+				let genreTarget  = Number(params.has('genre')?params.get('genre'):genres[0].id);
+				genreTarget 	 = (isNaN(genreTarget))?genres[0].id:genreTarget;
+				genreTarget		 = (genres.find(g=> g.id ==genreTarget)==undefined)?genres[0].id:genreTarget;
+				loadMovies(listByGenre.replace(replaceGenreKey,genreTarget),page,genres.find(g=>g.id==genreTarget).name,{
+					by:showBy,
+					gen:genreTarget
+				});
+				break;
+			case "popular":
+				loadMovies(popularMovies,page,'Populares',{
+					by:showBy
+				});
+				break;
+			case "playing_now":
+				loadMovies(nowPlayingMovies,page,'Peliculas Nuevas',{
+					by:showBy
+				})
+				break;
+			default:
+				loadMovies(nowPlayingMovies,page,'Peliculas Nuevas',{
+					by:showBy
+				});
 		}
+	
+
+
+		
 
 	}
 
 
-	function loadMovies(url,tag){
+	function loadMovies(url,page,tag,showBy){
 
-		currentTag.text(tag)
+		currentTag.text(tag);
+		$(document).attr('title', `${tag} | Pagina ${page}`);
+
 
 		apiRequest({
-			url:url,
+			url:url.replace(pageReplaceKey,page),
 			onSuccess:function(data){
+
+				const genreParams = `show_by=${showBy.by}&page=${pageReplaceKey}${(showBy.by=='genre')?`&genre=${showBy.gen}`:''}`;
 
 				data.results.forEach(function(movie){
 
@@ -64,7 +91,8 @@ document.addEventListener('DOMContentLoaded',function(){
 					genresTag=genresTag.slice(0,-1);
 
 					const poster = imagePath.replace(replaceImageSizeKey,'w400').replace(replaceImagePathKey,movie.poster_path)
-					const detail = `view/detail.html?movie=${movie.id}`;
+					
+					let detail = `view/detail.html?movie=${movie.id}&${genreParams.replace(pageReplaceKey,page)}`;
 					const description = ((movie.overview.length>60)?movie.overview.substring(0,60):movie.overview).concat('...');
 
 					let movieItem = $('<div>',{
@@ -90,9 +118,6 @@ document.addEventListener('DOMContentLoaded',function(){
 		                        <span class="item-title block font-bold text-xl text-center tracking-tight">${movie.title}</span>
 		                        <hr>
 		                        <span class="item-genres block break-all text-sm text-gray-500 tracking-tighter">${genresTag}</span>
-		                        <span class="item-length-span block p-1">
-		                            <span class="item-length bg-orange-500 text-white font-bold rounded p-1"><span class="item-length">105</span>min</span>
-		                        </span>
 		                        <div class="description-box flex flex-col font-sans">
 		                            <p class="tracking-tight break-all p-1">
 		                                <span class="item-description">
@@ -118,6 +143,13 @@ document.addEventListener('DOMContentLoaded',function(){
 					movieItem.appendTo(moviesContainer);
 
 				});
+
+				if(page!=1){
+					$('.prev-js').attr('href',`./?${genreParams.replace(pageReplaceKey,(page-1))}`);
+				}
+				$('.page-number-js').text(`Pagina ${page}`);
+				$('.next-js').attr('href',`./?${genreParams.replace(pageReplaceKey,(page+1))}`);
+
 			},
 			onFail:function(xhr,status,erro){
 
@@ -131,12 +163,13 @@ document.addEventListener('DOMContentLoaded',function(){
 			url:genrePath,
 			onSuccess:function(data){
 
-				genres =data.genres;
+				genres.push(...data.genres);
+				console.log(genres);
 
 				genres.forEach(function(genre){
 
 					$('<a>',{
-						href:`?genre=${genre.id}`,
+						href:`./?show_by=genre&genre=${genre.id}&page=1`,
 						html:genre.name
 					}).appendTo($('<li>').appendTo(genresContainer));
 					
@@ -145,12 +178,11 @@ document.addEventListener('DOMContentLoaded',function(){
 			onFail:function(xhr,status,error){
 				console.log(xhr);
 			}
-		})
+		});
 	}
 
 
 	loadGenres();
 	beginOfIndex();
-	console.log('RELOAD')
 	
 });
