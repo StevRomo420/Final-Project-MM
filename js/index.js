@@ -38,76 +38,92 @@ document.addEventListener('DOMContentLoaded',function(){
 		
 		let showBy = (params.has('show_by')?params.get('show_by'):'playing_now');
 
+
+		let loadParams = {
+			page:page,
+			title:'',
+			APIUrl:'',
+			pageParams:`show_by=${showBy}&page=${pageReplaceKey}`,
+		};
+
+
 		switch(showBy){
+
 			case "search":
 
-				let query = (params.has('query'))?params.get('query'):null;
-				loadMovies(((query==null)?nowPlayingMovies:searchPath.replace(replaceSearchQueryKey,query)),page,
-					`Busqueda: ${query}.`,{by:showBy,query:query});
+				const query = (params.has('query'))?params.get('query'):'';
 
-
+				loadParams.title='Busqueda';
+				loadParams.APIUrl=searchPath.replace(replaceSearchQueryKey,query);
+				loadParams.pageParams = loadParams.pageParams.concat(`&query=${query}`);
 
 				break;
 
 			case "genre":
 
-				let genreTarget  = Number(params.has('genre')?params.get('genre'):genres[0].id);
-				genreTarget 	 = (isNaN(genreTarget))?genres[0].id:genreTarget;
-				genreTarget		 = (genres.find(g=> g.id ==genreTarget)==undefined)?genres[0].id:genreTarget;
-				loadMovies(listByGenre.replace(replaceGenreKey,genreTarget),page,genres.find(g=>g.id==genreTarget).name,{
-					by:showBy,
-					gen:genreTarget
-				});
+				const getGenre = Number((params.has('genre'))?params.get('genre'):genres[0].id);
+				const genre = (isNaN(getGenre))?genres[0].id:getGenre;
+
+				loadParams.title = genres.find(g => g.id == genre).name;
+				loadParams.APIUrl=listByGenre.replace(replaceGenreKey,genre);
+				loadParams.pageParams = loadParams.pageParams.concat(`&genre=${genre}`);
+				
 				break;
+			
 			case "popular":
-				loadMovies(popularMovies,page,'Populares',{
-					by:showBy
-				});
+				
+				loadParams.title='Populares';
+				loadParams.APIUrl=popularMovies;	
+				
 				break;
+
 			case "playing_now":
-				loadMovies(nowPlayingMovies,page,'Peliculas Nuevas',{
-					by:showBy
-				})
+				
+				loadParams.title='Peliculas Nuevas';
+				loadParams.APIUrl=nowPlayingMovies;
+				
 				break;
+				
 			default:
-				loadMovies(nowPlayingMovies,page,'Peliculas Nuevas',{
-					by:showBy
-				});
+				
+				loadParams.title='Peliculas Nuevas';
+				loadParams.APIUrl=nowPlayingMovies;
 		}
 	
 
-
-		
+		loadParams.APIUrl=loadParams.APIUrl.replace(pageReplaceKey,page);
+		loadMovies(loadParams);
 
 	}
 
 
-	function loadMovies(url,page,tag,showBy){
+	function loadMovies(loadParams){
 
-		currentTag.text(tag);
-		$(document).attr('title', `${tag} | Pagina ${page}`);
 
+		currentTag.text(loadParams.title);
+		$(document).attr('title', `${loadParams.title} | Pagina ${loadParams.page}`);
 
 		apiRequest({
-			url:url.replace(pageReplaceKey,page),
+
+			url:loadParams.APIUrl,
+
 			onSuccess:function(data){
 
-				const generalParams = `show_by=${showBy.by}&page=${pageReplaceKey}${(showBy.by=='genre')?`&genre=${showBy.gen}`:''}${(showBy.by=='search')?`&query=${showBy.query}`:''}`;
+				const eachMovieDetailLink = `view/detail.html?movie=${replaceKey}&${loadParams.pageParams}` ;
 
 				data.results.forEach(function(movie){
 
-					let genresTag ='';
-					movie.genre_ids.forEach(function(genreItem){
-						genresTag+=`${genres.find(g=>g.id==genreItem).name},`;
+					const poster 		= imagePath.replace(replaceImageSizeKey,'w400').replace(replaceImagePathKey,movie.poster_path);
+					const description 	= ((movie.overview.length>60)?movie.overview.substring(0,60):movie.overview).concat('...');
+
+					let genresTag 		= '';
+					movie.genre_ids.forEach(function(genreItem){				
+						genresTag  		+= `${genres.find(g=>g.id==genreItem).name},`;
 					});
-					genresTag=genresTag.slice(0,-1);
+					genresTag 			= genresTag.slice(0,-1);
 
-					const poster = imagePath.replace(replaceImageSizeKey,'w400').replace(replaceImagePathKey,movie.poster_path)
-					
-					let detail = `view/detail.html?movie=${movie.id}&${generalParams.replace(pageReplaceKey,page)}`;
-					const description = ((movie.overview.length>60)?movie.overview.substring(0,60):movie.overview).concat('...');
 
-					let movieItem = $('<div>',{
+					const movieItem = $('<div>',{
 
 						class:'movie-item flex bg-gray-100 px-2 rounded shadow-4xl border-b-4 m-2 md:m-0 justify-around',
 
@@ -115,10 +131,10 @@ document.addEventListener('DOMContentLoaded',function(){
 		                    <div class="left-container w-[150px] md:w-[150px] overlap-box 2xl:w-[170px]">
 		                        <img src="${poster}" class="overlap-item relative w-full h-full object-cover object-center top-[-2px]"/>
 		                        <div class="overlap-item z-20 self-end mb-2 flex flex-col">
-		                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px]">8.2</span>
+		                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px]">${movie.vote_average}</span>
 		                        </div>
 		                        <div class="overlap-item z-20 self-center flex justify-center">
-		                            <a href="${detail}" class="hover:animate-bounce"> 
+		                            <a href="view/detail.html${eachMovieDetailLink.replace(replaceKey,movie.id)}" class="hover:animate-bounce"> 
 		                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
 		                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 		                                    <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
@@ -136,7 +152,7 @@ document.addEventListener('DOMContentLoaded',function(){
 		                                    ${description}
 		                                </span>
 		                            </p>
-		                            <a href="${detail}" class="inline-block self-end text-teal-400 hover:text-teal-300 hover:underline">detalles</a>
+		                            <a href="${eachMovieDetailLink.replace(replaceKey,movie.id)}" class="inline-block self-end text-teal-400 hover:text-teal-300 hover:underline">detalles</a>
 		                        </div>
 		                        <div class="control-box">
 		                             <div class="flex justify-end">
@@ -156,11 +172,10 @@ document.addEventListener('DOMContentLoaded',function(){
 
 				});
 
-				if(page!=1){
-					$('.prev-js').attr('href',`./?${generalParams.replace(pageReplaceKey,(page-1))}`);
-				}
-				$('.page-number-js').text(`Pagina ${page}`);
-				$('.next-js').attr('href',`./?${generalParams.replace(pageReplaceKey,(page+1))}`);
+				//PREV CURRENT NEXT -> PAGE
+				$('.prev-js').attr('href',(loadParams.page>1)?`./?${loadParams.pageParams.replace(pageReplaceKey,(loadParams.page-1))}`:'#');
+				$('.page-number-js').text(`Pagina ${loadParams.page}`);
+				$('.next-js').attr('href',`./?${loadParams.pageParams.replace(pageReplaceKey,(loadParams.page+1))}`);
 
 			},
 			onFail:function(xhr,status,erro){
@@ -175,8 +190,7 @@ document.addEventListener('DOMContentLoaded',function(){
 			url:genrePath,
 			onSuccess:function(data){
 
-				genres.push(...data.genres);
-				console.log(genres);
+				genres =data.genres;
 
 				genres.forEach(function(genre){
 

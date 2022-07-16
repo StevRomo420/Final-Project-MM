@@ -63,7 +63,7 @@
                         </a>
                     </li>
                     <li class="hidden md:flex">
-                        <a href="../view/acercaDe.html" class="py-2 px-2 text-gray-500 font-semibold hover:text-teal-300 hover:underline">
+                        <a href="./view/acercaDe.html" class="py-2 px-2 text-gray-500 font-semibold hover:text-teal-300 hover:underline">
                             Acerca de
                         </a> 
                     </li>
@@ -72,7 +72,7 @@
 
 
             <label for="searchControl">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="rgb(188,187,192)" class="cursor-pointer m-2 bi bi-search" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="rgb(188,187,192)" class="hover:fill-[rgb(0,0,0)] cursor-pointer m-2 bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg>
             </label>
@@ -81,10 +81,10 @@
             
         </div>
 
-        <div class="search-box hidden">
+        <div class="search-box hidden bg-blue-300">
             <form action="./" method="GET" class="flex flex-1 justify-end">
 
-                    <input type="text" placeholder="Buscar..." class="flex-1 md:flex-none  md:w-[40%] focus:outline-none border m-1 focus:border-teal-300 rounded" name="query" required/>
+                    <input type="text" placeholder="Buscar..." class="flex-1 md:flex-none  md:w-[40%] focus:outline-none border m-1 focus:border-teal-300 rounded p-2" name="query" required/>
                     <input type="hidden" name="show_by" value="search"/>
                     <input type="hidden" name="page" value="1"/>
                     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 m-1 border border-blue-700 rounded">
@@ -97,10 +97,10 @@
 
         <div class="nav-box md:hidden">
 
-            <nav class="dropdown-navigation bg-black-rgba hidden">
+            <nav class="dropdown-navigation bg-[rgba(0,0,0,0.1)] hidden">
                 <ul class="flex flex-col [&>li]:flex [&>li]:justify-center [&>li>a]:text-center [&>li>a]:flex-1 [&>li]:border-b-2 text-xl">
                     <li>
-                        <a href="#" class="py-2 px-0 text-white hover:text-teal-300  font-semibold hover:underline">
+                        <a href="./?show_by=now_playing" class="py-2 px-0 text-white hover:text-teal-300  font-semibold hover:underline">
                             Peliculas nuevas
                         </a>
                     </li>
@@ -110,12 +110,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="py-2 px-2 text-white font-semibold hover:text-teal-300 hover:underline">
+                        <a href="./?show_by=popular" class="py-2 px-2 text-white font-semibold hover:text-teal-300 hover:underline">
                             Populares
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="py-2 px-2 text-white font-semibold hover:text-teal-300 hover:underline">
+                        <a href="./view/acercaDe.html" class="py-2 px-2 text-white font-semibold hover:text-teal-300 hover:underline">
                             Acerca de
                         </a> 
                     </li>
