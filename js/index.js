@@ -10,11 +10,12 @@ document.addEventListener('DOMContentLoaded',function(){
 	//PARAM
 	const params 				= new URLSearchParams(window.location.search);
 
-	//PATHS
+	//KEYS
 	const pageReplaceKey 		= 'PAGE_NUMBER';
 	const replaceGenreKey		= 'GENRE_KEY';
 	const replaceSearchQueryKey = 'SEARCH_QUERY';
 
+	//PATHS
 	const genrePath				= masterUrl.concat('genre/movie/list').concat(apiKeyAndLanguageParameter);
 	let nowPlayingMovies 		= masterUrl.concat('movie/now_playing').concat(apiKeyAndLanguageParameter).concat(`&page=${pageReplaceKey}`);
 	let popularMovies 			= masterUrl.concat('movie/popular').concat(apiKeyAndLanguageParameter).concat(`&page=${pageReplaceKey}`);
@@ -22,10 +23,15 @@ document.addEventListener('DOMContentLoaded',function(){
 	let searchPath				= masterUrl.concat('search/movie').concat(apiKeyAndLanguageParameter).concat(`&query=${replaceSearchQueryKey}=&page=${pageReplaceKey}`);
 
 
-	//COMPONENTES
+	//COMPONENTS
 	const genresContainer 		= $('.genres-container-js');
 	const moviesContainer  		= $('.movies-js');
 	const currentTag  			= $('.current-tag-js');
+	const currentTitle  		= $('.selected-a-js');
+	const loading				= $('.loading-js')
+
+	//RES
+	const imageNotFound			= './img/image_not_found.png';
 
 	let genres=[];
 
@@ -102,6 +108,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 		currentTag.text(loadParams.title);
 		$(document).attr('title', `${loadParams.title} | Pagina ${loadParams.page}`);
+		currentTitle.text(loadParams.title);
 
 		apiRequest({
 
@@ -109,12 +116,13 @@ document.addEventListener('DOMContentLoaded',function(){
 
 			onSuccess:function(data){
 
-				const eachMovieDetailLink = `view/detail.html?movie=${replaceKey}&${loadParams.pageParams}` ;
+				const eachMovieDetailLink = `view/detail.html?movie=${replaceKey}&${loadParams.pageParams.replace(pageReplaceKey,loadParams.page)}` ;
 
 				data.results.forEach(function(movie){
 
-					const poster 		= imagePath.replace(replaceImageSizeKey,'w400').replace(replaceImagePathKey,movie.poster_path);
-					const description 	= ((movie.overview.length>60)?movie.overview.substring(0,60):movie.overview).concat('...');
+					const poster 		= (movie.poster_path!=null)?imagePath.replace(replaceImageSizeKey,'w400').replace(replaceImagePathKey,movie.poster_path):imageNotFound;
+					const description 	= (movie.overview.length>0)?movie.overview.split(' ').slice(0,12).join(' ').concat('...'):'Sin descripcion.';
+
 
 					let genresTag 		= '';
 					movie.genre_ids.forEach(function(genreItem){				
@@ -128,10 +136,10 @@ document.addEventListener('DOMContentLoaded',function(){
 						class:'movie-item flex bg-gray-100 px-2 rounded shadow-4xl border-b-4 m-2 md:m-0 justify-around',
 
 						html:`
-		                    <div class="left-container w-[150px] md:w-[150px] overlap-box 2xl:w-[170px]">
-		                        <img src="${poster}" class="overlap-item relative w-full h-full object-cover object-center top-[-2px]"/>
+		                    <div class="left-container w-[150px] md:w-[150px] overlap-box 2xl:w-[170px] bg-[rgba(0,0,0,0.5)]">
+		                        <img src="${poster}" class="overlap-item relative w-full h-full object-cover object-center top-[-2px]" alt="${movie.title}"/>
 		                        <div class="overlap-item z-20 self-end mb-2 flex flex-col">
-		                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px]">${movie.vote_average}</span>
+		                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px] w-[50px] h-[50px] text-center">${movie.vote_average}</span>
 		                        </div>
 		                        <div class="overlap-item z-20 self-center flex justify-center">
 		                            <a href="${eachMovieDetailLink.replace(replaceKey,movie.id)}" class="hover:animate-bounce"> 
@@ -142,19 +150,19 @@ document.addEventListener('DOMContentLoaded',function(){
 		                            </a>
 		                        </div>
 		                    </div>
-		                    <div class="right-container w-[45%] md:w-[180px] ml-2 p-1 2xl:w-[150px]">
+		                    <div class="right-container w-[45%] md:w-[180px] ml-2 p-1 2xl:w-[150px] flex flex-col">
 		                        <span class="item-title block font-bold text-xl text-center tracking-tight">${movie.title}</span>
 		                        <hr>
 		                        <span class="item-genres block break-all text-sm text-gray-500 tracking-tighter">${genresTag}</span>
 		                        <div class="description-box flex flex-col font-sans">
-		                            <p class="tracking-tight break-all p-1">
+		                            <p class="tracking-tight @break-all p-1">
 		                                <span class="item-description">
 		                                    ${description}
 		                                </span>
 		                            </p>
 		                            <a href="${eachMovieDetailLink.replace(replaceKey,movie.id)}" class="inline-block self-end text-teal-400 hover:text-teal-300 hover:underline">detalles</a>
 		                        </div>
-		                        <div class="control-box">
+		                        <div class="control-box mt-auto">
 		                             <div class="flex justify-end">
 		                                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 		                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
@@ -171,6 +179,10 @@ document.addEventListener('DOMContentLoaded',function(){
 					movieItem.appendTo(moviesContainer);
 
 				});
+
+				loading.toggleClass('hidden');
+				loading.remove();
+
 
 				//PREV CURRENT NEXT -> PAGE
 				$('.prev-js').attr('href',(loadParams.page>1)?`./?${loadParams.pageParams.replace(pageReplaceKey,(loadParams.page-1))}`:'#');
