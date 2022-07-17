@@ -76,12 +76,19 @@ document.addEventListener('DOMContentLoaded',function(){
 		findVideo(data.id);
 
 		createEventListeners();
+		setBackLink();
 
+		$(document).attr('title', `${data.title} | Detalles de la pelicula`);
+
+	}
+
+
+	function setBackLink(){
 
 		let page = Number(params.has('page')?params.get('page'):1);
 		page 	 = (isNaN(page))?1:page;
 
-		let showBy = (params.has('show_by')?params.get('show_by'):'playing_now');
+		const showBy = (params.has('show_by')?params.get('show_by'):'playing_now');
 		let backLink =`../?show_by=${showBy}&page=${page}`;
 
 
@@ -105,8 +112,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
 		
 		backBtn.attr('href',backLink);
-
-		$(document).attr('title', `${data.title} | Detalles de la pelicula`);
 
 	}
 
