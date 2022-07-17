@@ -60,15 +60,18 @@ document.addEventListener('DOMContentLoaded',function(){
 	function showMovie(data){
 
 		movie.toggleClass('hidden');
-		posterImg.attr('src',imagePath.replace(replaceImageSizeKey,'w200').replace(replaceImagePathKey,data.poster_path));
+		posterImg.attr('src',(data.poster_path!=null)?imagePath.replace(replaceImageSizeKey,'w200').replace(replaceImagePathKey,data.poster_path):'../img/image_not_found.png');
 		posterImg.attr('alt',data.original_title);
-		bigPosterImg.attr('src',imagePath.replace(replaceImageSizeKey,'w500').replace(replaceImagePathKey,data.poster_path));
+		bigPosterImg.attr('src',(data.poster_path!=null)?imagePath.replace(replaceImageSizeKey,'w500').replace(replaceImagePathKey,data.poster_path):'../img/image_not_found.png');
 		backImg.attr('src',imagePath.replace(replaceImageSizeKey,'original').replace(replaceImagePathKey,data.backdrop_path));
+		backImg.attr('alt',data.original_title);
+		bigPosterImg.attr('alt',data.original_title);
+		bigPosterImg.toggleClass('animate-pulse',(data.poster_path==null));
 		title.text(data.title);
 		length.text(data.runtime);
-		description.text(data.overview);
+		description.text((data.overview.length>0)?data.overview:'Sin descripcion');
 		rating.text(data.vote_average);
-		premiereDate.text(data.release_date);
+		premiereDate.text((data.release_date.length>0)?data.release_date:'No se encontro la fecha');
 
 		showGenresTag(data.genres);
 		showStarRating(data.vote_average);
@@ -177,30 +180,45 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	function showCompanies(production_companies){
 		
-		production_companies.forEach(function(company){
-		
-			if(company.logo_path!=null){
-				
-				let image = $('<img/>',{
-					src:imagePath.replace(replaceImageSizeKey,'w200').replace(replaceImagePathKey,company.logo_path),
-					class:'w-[100px] h-[100px] m-3 object-center object-contain shadow-2xl'
-				});
+		if(production_companies.length>0) {
 
-				let div = $('<div>',{
-					class:'flex border-2 md:border-0 md:inline-block',
-				});
+			production_companies.forEach(function(company){
+			
+				if(company.logo_path!=null){
+					
+					let image = $('<img/>',{
+						src:imagePath.replace(replaceImageSizeKey,'w200').replace(replaceImagePathKey,company.logo_path),
+						class:'w-[100px] h-[100px] m-3 object-center object-contain shadow-2xl'
+					});
 
-				image.appendTo(div);
-				div.append(`<div class='md:hidden'>
-								<span class='font-bold'>Nombre: </span><span>${company.name}</span><br>
-								<span class='font-bold'>Pais: </span><span>${company.origin_country}</span>
-							</div>`);
+					let div = $('<div>',{
+						class:'flex border-2 md:border-0 md:inline-block',
+					});
 
-				div.appendTo(carousel);
+					image.appendTo(div);
+					div.append(`<div class='md:hidden'>
+									<span class='font-bold'>Nombre: </span><span>${company.name}</span><br>
+									<span class='font-bold'>Pais: </span><span>${company.origin_country}</span>
+								</div>`);
 
-			}
+					div.appendTo(carousel);
 
-		});
+				}
+
+			});
+
+		}else{
+
+			$('<span>',{
+				html:'No hay compañías de produccion',
+				class:'p-2'
+			}).appendTo(carousel);
+
+		}
+
+
+
+
 
 	}
 
