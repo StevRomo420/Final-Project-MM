@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded',function(){
 					
 					let image = $('<img/>',{
 						src:imagePath.replace(replaceImageSizeKey,'w200').replace(replaceImagePathKey,company.logo_path),
-						class:'w-[100px] h-[100px] m-3 object-center object-contain shadow-2xl'
+						class:'w-[100px] h-[100px] m-3 object-center object-contain shadow-2xl dark:bg-gray-400 p-2'
 					});
 
 					let div = $('<div>',{
