@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded',function(){
 					});
 
 					let div = $('<div>',{
-						class:'flex border-2 md:border-0 md:inline-block',
+						class:'flex border-2 dark:border-[1px] dark:border-[#262626] md:border-0 md:inline-block',
 					});
 
 					image.appendTo(div);
@@ -238,6 +238,10 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	function createEventListeners(){
 		
+		$('.toggle-theme-js').click(function(){
+			storageOperations(false);
+		});
+
 		posterImg.hover(function(){
 			$('.big-poster-js').toggleClass('hidden');
 		});
@@ -268,6 +272,39 @@ document.addEventListener('DOMContentLoaded',function(){
 		errMsg.text(msg);
 	}
 
+	function storageOperations(type){
+		
+		try{
+
+			const root = document.getElementsByTagName('html')[0];
+			let mode = localStorage.getItem('darkThemeMode');
+
+			if(mode==null){mode=false;localStorage.setItem('darkThemeMode',mode);}
+
+			if((type) && (mode=='true')){
+				root.classList.toggle('dark');
+
+			}else if(!type){
+				root.classList.toggle('dark');
+				localStorage.setItem('darkThemeMode',(mode=='false')?true:false);
+			}
+
+			document.body.classList.add('transition-colors','duration-800');
+
+
+		}catch(error){
+		}
+
+	}
+
+	function afterLoad(){
+		$('.loading-js').toggleClass('hidden').remove();
+		$('.bottom-wave-js').toggleClass('hidden');
+		$('.theme-mode-js').toggleClass('hidden');
+	}
+
+	storageOperations(true);
 	findMovie();
+	afterLoad();
 
 });

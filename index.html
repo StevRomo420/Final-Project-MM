@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <LINK REL=StyleSheet HREF="css/styles.css" TYPE="text/css" MEDIA=screen>
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/tailwind_config.js"></script>
 
+    <script type="text/javascript" src="./js/tailwind_config.js"></script>
     <script type="text/javascript" src="./js/TMDBApi.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>
 
-    <title>Movie trends</title>
+    <title>Peliculas</title>
 
 </head>
 <body class="bg-gray-300 font-mono dark:bg-[#1a1a23]">
@@ -36,7 +37,7 @@
         
 
             <nav class="main-navigation">
-                <ul class="flex text-2xl">
+                <ul class="flex text-2xl dark:[&>li>a]:text-[#745E91] dark:[&>li>a:hover]:text-[#967ABC]">
 
                     <li class="selected-li md:hidden">
                         <a href="#" class="selected-a-js selected-a py-2 px-0 text-teal-300 hover:text-teal-300 text-2xl font-bold hover:underline">
@@ -86,10 +87,10 @@
         <div class="search-box hidden">
             <form action="./" method="GET" class="flex flex-1 justify-end">
 
-                    <input type="text" placeholder="Buscar..." class="flex-1 focus:outline-none border m-1 focus:border-teal-300 rounded p-2 dark:bg-[#383838] dark:text-white dark:font-semibold" name="query" required/>
+                    <input type="text" placeholder="Buscar..." class="flex-1 focus:outline-none border m-1 focus:border-teal-300 rounded p-2 dark:bg-[#383838] dark:text-white dark:font-semibold  dark:focus:border-[#745E91]" name="query" required/>
                     <input type="hidden" name="show_by" value="search"/>
                     <input type="hidden" name="page" value="1"/>
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 m-1 border border-blue-700 rounded">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 m-1 border border-blue-700 rounded dark:bg-[#745E91] dark:hover:bg-[#967ABC] dark:border-[#403551]">
                         Buscar
                     </button>
                     
@@ -199,8 +200,8 @@
 
         <div class="no-results-js flex flex-col place-items-center hidden">
             <img src="./img/noResult.png" class="w-[160px] h-[120px] md:w-[220px] md:h-[180px] my-4 mt-20"/>
-            <span class="font-bold mb-2 mx-2 text-center">Ups... No se han encontrado coincidencias.</span>
-            <a href="./" class="text-teal-500 hover:underline hover:text-teal-400">Ir al inicio</a>
+            <span class="font-bold mb-2 mx-2 text-center dark:text-white dark:font-semibold">Ups... No se han encontrado coincidencias.</span>
+            <a href="./" class="text-teal-500 hover:underline hover:text-teal-400 dark:text-[#745E91] dark:hover:text-[#967ABC] dark:font-semibold">Ir al inicio</a>
         </div>
 
         <div class="flex justify-center">
@@ -210,7 +211,7 @@
 
 
         <div class="pages-navigation-js bottom-0 flex hidden">
-            <ul class="flex flex-1 justify-around mx-1 md:mx-20 bg-white rounded shadow-4xl [&>li]:flex [&>li>a]:rounded [&>li>a]:p-2 [&>li]:py-1 [&>li>a]:bg-gray-100 dark:bg-[#1d1d1d] dark:[&>li>a]:bg-[#161616]">
+            <ul class="flex flex-1 justify-around mx-1 md:mx-20 bg-white rounded shadow-4xl [&>li]:flex [&>li>a]:rounded [&>li>a]:p-2 [&>li]:py-1 [&>li>a]:bg-gray-100 dark:bg-[#1d1d1d] dark:[&>li>a]:bg-[#161616] dark:[&>li>a:hover]:bg-[#4C4C4C] dark:[&>li>a]:font-semibold">
                 <li>
                     <a class="prev-js hover:text-teal-500 hover:bg-gray-200 dark:text-white dark:hover:text-teal-500">Anterior</a>
                 </li>
@@ -218,7 +219,7 @@
                    <a class="page-number-js dark:text-white"></a>
                 </li>
                 <li>
-                    <a class="next-js hover:text-teal-500 hover:bg-gray-200 dark:text-white dark:hover:text-teal-500">Siguiente</a>
+                    <a class="next-js hover:text-teal-500 hover:bg-gray-200 dark:text-white dark:hover:text-[#967ABC]">Siguiente</a>
                 </li>
             </ul>
         </div>

@@ -149,11 +149,11 @@ document.addEventListener('DOMContentLoaded',function(){
 			                    <div class="left-container w-[150px] md:w-[150px] overlap-box 2xl:w-[170px] bg-[rgba(0,0,0,0.5)]">
 			                        <img src="${poster}" class="overlap-item relative w-full h-full object-cover object-center top-[-2px]" alt="${movie.title}"/>
 			                        <div class="overlap-item z-20 self-end mb-2 flex flex-col">
-			                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px] w-[50px] h-[50px] text-center dark:bg-green-500">${movie.vote_average}</span>
+			                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px] w-[50px] h-[50px] text-center dark:bg-[#5600e8]">${movie.vote_average}</span>
 			                        </div>
 			                        <div class="overlap-item z-20 self-center flex justify-center">
-			                            <a href="${eachMovieDetailLink.replace(replaceKey,movie.id)}" class="hover:animate-bounce"> 
-			                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg" viewBox="0 0 16 16">
+			                            <a href="${eachMovieDetailLink.replace(replaceKey,movie.id)}" class="hover:animate-bounce "> 
+			                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inside-svg hover:text-yellow-300 transition-colors transition-1000" viewBox="0 0 16 16">
 			                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 			                                    <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
 			                                </svg>
@@ -161,23 +161,23 @@ document.addEventListener('DOMContentLoaded',function(){
 			                        </div>
 			                    </div>
 			                    <div class="right-container w-[45%] md:w-[180px] ml-2 p-1 2xl:w-[150px] flex flex-col">
-			                        <span class="item-title block font-bold text-xl text-center tracking-tight dark:text-gray-200">${movie.title}</span>
+			                        <a href="${eachMovieDetailLink.replace(replaceKey,movie.id)}" class="item-title block font-bold text-xl text-center tracking-tight dark:text-gray-200 hover:underline dark:text-[#745E91] dark:hover:text-yellow-300">${movie.title}</a>
 			                        <hr>
 			                        <span class="item-genres block break-all text-sm text-gray-500 tracking-tighter dark:text-white">${genresTag}</span>
-			                        <div class="description-box flex flex-col font-sans">
+			                        <div class="description-box flex flex-col font-sans border-[1px] dark:border-[#262626]">
 			                            <p class="tracking-tight p-1">
 			                                <span class="item-description dark:text-gray-200 dark:font-semibold">
 			                                    ${description}
 			                                </span>
 			                            </p>
-			                            <a href="${eachMovieDetailLink.replace(replaceKey,movie.id)}" class="inline-block self-end text-teal-400 hover:text-teal-300 hover:underline dark:text-yellow-300">detalles</a>
+			                            <a href="${eachMovieDetailLink.replace(replaceKey,movie.id)}" class="inline-block self-end text-teal-400 hover:text-teal-300 hover:underline dark:text-[#745E91] dark:hover:text-[#967ABC] dark:font-semibold">detalles</a>
 			                        </div>
-			                        <div class="control-box mt-auto">
-			                             <div class="flex justify-end">
-			                                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+			                        <div class="control-box mt-auto pt-2">
+			                             <div class="flex justify-end text-yellow-300">
+			                                <svg xmlns="http://www.w3.org/2000/svg" class="hover:text-[gold] m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 			                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
 			                                </svg>
-			                                <svg xmlns="http://www.w3.org/2000/svg" class="m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+			                                <svg xmlns="http://www.w3.org/2000/svg" class="hover:text-[gold] m-1 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 			                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path>
 			                                </svg> 
 			                             </div>
@@ -194,8 +194,10 @@ document.addEventListener('DOMContentLoaded',function(){
 					//PREV CURRENT NEXT -> PAGE
 					$('.prev-js').toggleClass('hidden',(loadParams.page<=1)).attr('href',(loadParams.page>1)?`./?${loadParams.pageParams.replace(pageReplaceKey,(loadParams.page-1))}`:'#');
 					$('.page-number-js').text(`Pagina ${loadParams.page}`);
-					$('.next-js').toggleClass('hidden',(loadParams.page>=500)).attr('href',`./?${loadParams.pageParams.replace(pageReplaceKey,(loadParams.page+1))}`);
+					$('.next-js').toggleClass('hidden',((loadParams.page>=500) || (data.page>=data.total_pages))).attr('href',`./?${loadParams.pageParams.replace(pageReplaceKey,(loadParams.page+1))}`);
 					$('.pages-navigation-js').toggleClass('hidden');
+
+					console.log(data);
 
 				}else{
 					noResults.toggleClass('hidden');
