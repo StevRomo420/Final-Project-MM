@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded',function(){
 		showCompanies(data.production_companies);
 		findVideo(data.id);
 
-		createEventListeners();
 		setBackLink();
 
 		$(document).attr('title', `${data.title} | Detalles de la pelicula`);
@@ -270,6 +269,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	function showWarning(msg){
 		warning.toggleClass('hidden');
 		errMsg.text(msg);
+		$('.bottom-wave-js').remove();
 	}
 
 	function storageOperations(type){
@@ -305,6 +305,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	storageOperations(true);
 	findMovie();
+	createEventListeners();
 	afterLoad();
 
 });
