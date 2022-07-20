@@ -178,32 +178,29 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
 	function showCompanies(production_companies){
-		
+		console.log(production_companies);
 		if(production_companies.length>0) {
 
 			production_companies.forEach(function(company){
 			
-				if(company.logo_path!=null){
 					
-					let image = $('<img/>',{
-						src:imagePath.replace(replaceImageSizeKey,'w200').replace(replaceImagePathKey,company.logo_path),
-						class:'w-[100px] h-[100px] m-3 object-center object-contain shadow-2xl dark:bg-gray-400 p-2'
-					});
+				let image = $('<img/>',{
+					src:(company.logo_path!=null)?imagePath.replace(replaceImageSizeKey,'w200').replace(replaceImagePathKey,company.logo_path):'',
+					class:'w-[100px] h-[100px] m-3 object-center object-contain shadow-2xl dark:bg-gray-400 p-2 overflow-hidden',
+					alt:company.name
+				});
 
-					let div = $('<div>',{
-						class:'flex border-2 dark:border-[1px] dark:border-[#262626] md:border-0 md:inline-block',
-					});
+				let div = $('<div>',{
+					class:'flex border-2 dark:border-[1px] dark:border-[#262626] md:border-0 md:inline-block',
+				});
 
-					image.appendTo(div);
-					div.append(`<div class='md:hidden'>
-									<span class='font-bold'>Nombre: </span><span>${company.name}</span><br>
-									<span class='font-bold'>Pais: </span><span>${company.origin_country}</span>
-								</div>`);
+				image.appendTo(div);
+				div.append(`<div class='md:hidden'>
+								<span class='font-bold'>Nombre: </span><span>${company.name}</span><br>
+								<span class='font-bold'>Pais: </span><span>${(company.origin_country.length>0)?company.origin_country:'Desconocido.'}</span>
+							</div>`);
 
-					div.appendTo(carousel);
-
-				}
-
+				div.appendTo(carousel);
 			});
 
 		}else{
