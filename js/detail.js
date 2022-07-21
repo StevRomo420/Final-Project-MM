@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	let youtubeEmbedPath 	= `https://www.youtube.com/embed/${youtubeReplaceKey}?autoplay=1`;
 	let moviePath 			= masterUrl.concat('movie/').concat(replaceKey).concat('/videos').concat(apiKeyAndLanguageParameter);
 
+// https://api.themoviedb.org/3/movie/ID_PELICULA/videos?api_key=kjdfuifgwifewuif&language=es-MX
 
 	//INITAL MOVIE FIND CALL
 	function findMovie(){
@@ -128,8 +129,12 @@ document.addEventListener('DOMContentLoaded',function(){
 				if(result.length>0){
 					if(result[0].site=='YouTube'){
 						videoIframe.data('video',result[0].key);
-						createPLayVideoEventListeners(result[0].key);
+						createPLayVideoEventListeners(result[0].key,true);
+					}else{
+						createPLayVideoEventListeners(null,false);
 					}
+				}else{
+					createPLayVideoEventListeners(null,false);
 				}
 			},
 			onFail:function(xhr,status,error){
@@ -187,7 +192,8 @@ document.addEventListener('DOMContentLoaded',function(){
 				let image = $('<img/>',{
 					src:(company.logo_path!=null)?imagePath.replace(replaceImageSizeKey,'w200').replace(replaceImagePathKey,company.logo_path):'',
 					class:'w-[100px] h-[100px] m-3 object-center object-contain shadow-2xl dark:bg-gray-400 p-2 overflow-hidden',
-					alt:company.name
+					alt:company.name,
+					title:company.name
 				});
 
 				let div = $('<div>',{
@@ -218,18 +224,25 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	}
 
-	function createPLayVideoEventListeners(key){
+	function createPLayVideoEventListeners(key,responseType){
 
-		$('.play-btn-js').click(function(){	
-			videoIframe.attr('src',youtubeEmbedPath.replace(youtubeReplaceKey,videoIframe.data('video')));
-			$('.video-box-js').toggleClass('hidden');
-		});
+		if(responseType){
+			$('.play-btn-js').click(function(){	
+				videoIframe.attr('src',youtubeEmbedPath.replace(youtubeReplaceKey,videoIframe.data('video')));
+				$('.video-box-js').toggleClass('hidden');
+			});
 
-		$('.close-video-box-btn-js').click(function(){
-			$('.video-box-js').toggleClass('hidden');
-			videoIframe.attr('src','');
-		});
+			$('.close-video-box-btn-js').click(function(){
+				$('.video-box-js').toggleClass('hidden');
+				videoIframe.attr('src','');
+			});
+		}else{
 
+			$('.play-btn-js').click(function(){	
+				warningPopup('La API no ha proporcionado ningun video que mostrar.')
+			});
+
+		}
 	}
 
 	function createEventListeners(){
@@ -246,6 +259,10 @@ document.addEventListener('DOMContentLoaded',function(){
 		$('.play-btn-js').hover(function(){
 			$('.background-box-js').toggleClass('md:blur-sm');
 			backImg.toggleClass('scale-medium');
+		});
+
+		$('.popup-exit-js').click(function(){
+			$('.popup-box-js').fadeOut(200);
 		});
 	
 	}
@@ -269,29 +286,10 @@ document.addEventListener('DOMContentLoaded',function(){
 		$('.bottom-wave-js').remove();
 	}
 
-	function storageOperations(type){
-		
-		try{
 
-			const root = document.getElementsByTagName('html')[0];
-			let mode = localStorage.getItem('darkThemeMode');
-
-			if(mode==null){mode=false;localStorage.setItem('darkThemeMode',mode);}
-
-			if((type) && (mode=='true')){
-				root.classList.toggle('dark');
-
-			}else if(!type){
-				root.classList.toggle('dark');
-				localStorage.setItem('darkThemeMode',(mode=='false')?true:false);
-			}
-
-			document.body.classList.add('transition-colors','duration-800');
-
-
-		}catch(error){
-		}
-
+	function warningPopup(message){
+		$('.popup-msg-js').text(message);
+		$('.popup-box-js').css('display','flex').hide().fadeIn(200);
 	}
 
 	function afterLoad(){
@@ -300,7 +298,6 @@ document.addEventListener('DOMContentLoaded',function(){
 		$('.theme-mode-js').toggleClass('hidden');
 	}
 
-	storageOperations(true);
 	findMovie();
 	createEventListeners();
 	afterLoad();

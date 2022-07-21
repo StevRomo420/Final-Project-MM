@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 							html:`
 			                    <div class="left-container w-[150px] md:w-[150px] overlap-box 2xl:w-[170px] bg-[rgba(0,0,0,0.5)]">
-			                        <img src="${poster}" class="overlap-item relative w-full h-full object-cover object-center top-[-2px]" alt="${movie.title}"/>
+			                        <img src="${poster}" class="overlap-item relative w-full h-full object-cover object-center top-[-2px]" alt="${movie.title}" title="${movie.title}"/>
 			                        <div class="overlap-item z-20 self-end mb-2 flex flex-col">
 			                            <span class="rounded-full relative bg-teal-300 p-3 text-white self-end right-[-25px] w-[50px] h-[50px] text-center dark:bg-[#5600e8]">${movie.vote_average}</span>
 			                        </div>
@@ -238,31 +238,7 @@ document.addEventListener('DOMContentLoaded',function(){
 		});
 	}
 
-	function storageOperations(type){
-		
-		try{
-
-			const root = document.getElementsByTagName('html')[0];
-			let mode = localStorage.getItem('darkThemeMode');
-
-			if(mode==null){mode=false;localStorage.setItem('darkThemeMode',mode);}
-
-			if((type) && (mode=='true')){
-				root.classList.toggle('dark');
-
-			}else if(!type){
-				root.classList.toggle('dark');
-				localStorage.setItem('darkThemeMode',(mode=='false')?true:false);
-			}
-
-			document.body.classList.add('transition-colors','duration-800');
-
-
-		}catch(error){
-
-		}
-
-	}
+	
 
 	function createEventListeners(){
 		$('.toggle-theme-js').click(function(){
@@ -270,7 +246,6 @@ document.addEventListener('DOMContentLoaded',function(){
 		});
 	}
 
-	storageOperations(true);
 	loadGenres();
 	beginOfIndex();
 	createEventListeners();

@@ -7,12 +7,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../img_parcial/fontawesome-free-5.15.3-web/css/all.css">
+    <script type="text/javascript" src="../js/tailwind_config.js"></script>
 	<title>Acerca De</title>
 </head>
-<body class="font-mono">
+<body class="font-mono dark:bg-[#1a1a23]">
 
     <header class="bg-white">
-        <div class="pt-6">
+        <div class="pt-6  dark:bg-[#1a1a23]">
             <div class="md:hidden btn_volver pl-10">
                 <button type="button" href="#" onclick="goBack()" class="sin_borde fondo_transpa animacion"
                     id="btn_barra_volver"><i class="fas fa-arrow-left"></i></button>
@@ -20,7 +21,7 @@
           
             <div class="">
                 <nav class="main-navigation pl-20">
-                    <ul class="flex text-2xl">
+                    <ul class="flex text-2xl  dark:[&>li>a]:text-[#745E91] dark:[&>li>a:hover]:text-[#967ABC]">
     
                         <li class="hidden md:flex">
                             <a href="../index.html" class="py-2 px-2 text-gray-500 font-semibold hover:text-teal-300 hover:underline">
@@ -44,12 +45,12 @@
             </div>
     </header>
 
-    <div class="container pt-16">
+    <div class="container pt-16 ">
         <div class="titulo text-3xl">
-            <h1>Acerca de</h1>
+            <h1 class="dark:text-white">Acerca de</h1>
         </div>
 
-        <article class="articulo text-3xl">
+        <article class="articulo text-3xl dark:bg-[#1d1d1d]">
             <h2>Proyecto Final</h2>
             <h2>IF7102 - Multimedios</h2>
             <h3>Realizado por:</h3>
@@ -59,7 +60,7 @@
         </article>
 
         <div class="parrafo text-xl">
-            <p>Este Sitio Web utiliza una API proporcionada por: <a
+            <p class="dark:text-white">Este Sitio Web utiliza una API proporcionada por: <a
                     href="https://www.themoviedb.org/">www.themoviedb.org</a></p>
         </div>
        
@@ -71,12 +72,12 @@
     </div>
 
     <footer class="">
-        <svg id="wave" style="transform:rotate(0deg); transition: 0.3s" 
+        <svg id="wave"  style="transform:rotate(0deg); transition: 0.3s" 
         viewBox="0 0 1440 140" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
             <stop stop-color="#74EBD9" offset="0%"></stop>
             <stop stop-color="#74EBD9" offset="100%"></stop>
-        </linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,84L80,72.3C160,61,320,37,480,39.7C640,42,800,70,960,67.7C1120,65,1280,33,1440,18.7C1600,5,1760,9,1920,9.3C2080,9,2240,5,2400,14C2560,23,2720,47,2880,53.7C3040,61,3200,51,3360,44.3C3520,37,3680,33,3840,37.3C4000,42,4160,56,4320,53.7C4480,51,4640,33,4800,35C4960,37,5120,61,5280,77C5440,93,5600,103,5760,88.7C5920,75,6080,37,6240,39.7C6400,42,6560,84,6720,86.3C6880,89,7040,51,7200,44.3C7360,37,7520,61,7680,74.7C7840,89,8000,93,8160,86.3C8320,79,8480,61,8640,60.7C8800,61,8960,79,9120,86.3C9280,93,9440,89,9600,74.7C9760,61,9920,37,10080,39.7C10240,42,10400,70,10560,77C10720,84,10880,70,11040,74.7C11200,79,11360,103,11440,114.3L11520,126L11520,140L11440,140C11360,140,11200,140,11040,140C10880,140,10720,140,10560,140C10400,140,10240,140,10080,140C9920,140,9760,140,9600,140C9440,140,9280,140,9120,140C8960,140,8800,140,8640,140C8480,140,8320,140,8160,140C8000,140,7840,140,7680,140C7520,140,7360,140,7200,140C7040,140,6880,140,6720,140C6560,140,6400,140,6240,140C6080,140,5920,140,5760,140C5600,140,5440,140,5280,140C5120,140,4960,140,4800,140C4640,140,4480,140,4320,140C4160,140,4000,140,3840,140C3680,140,3520,140,3360,140C3200,140,3040,140,2880,140C2720,140,2560,140,2400,140C2240,140,2080,140,1920,140C1760,140,1600,140,1440,140C1280,140,1120,140,960,140C800,140,640,140,480,140C320,140,160,140,80,140L0,140Z"></path></svg>
+        </linearGradient></defs><path class="dark:fill-[#3a2d49]"  style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,84L80,72.3C160,61,320,37,480,39.7C640,42,800,70,960,67.7C1120,65,1280,33,1440,18.7C1600,5,1760,9,1920,9.3C2080,9,2240,5,2400,14C2560,23,2720,47,2880,53.7C3040,61,3200,51,3360,44.3C3520,37,3680,33,3840,37.3C4000,42,4160,56,4320,53.7C4480,51,4640,33,4800,35C4960,37,5120,61,5280,77C5440,93,5600,103,5760,88.7C5920,75,6080,37,6240,39.7C6400,42,6560,84,6720,86.3C6880,89,7040,51,7200,44.3C7360,37,7520,61,7680,74.7C7840,89,8000,93,8160,86.3C8320,79,8480,61,8640,60.7C8800,61,8960,79,9120,86.3C9280,93,9440,89,9600,74.7C9760,61,9920,37,10080,39.7C10240,42,10400,70,10560,77C10720,84,10880,70,11040,74.7C11200,79,11360,103,11440,114.3L11520,126L11520,140L11440,140C11360,140,11200,140,11040,140C10880,140,10720,140,10560,140C10400,140,10240,140,10080,140C9920,140,9760,140,9600,140C9440,140,9280,140,9120,140C8960,140,8800,140,8640,140C8480,140,8320,140,8160,140C8000,140,7840,140,7680,140C7520,140,7360,140,7200,140C7040,140,6880,140,6720,140C6560,140,6400,140,6240,140C6080,140,5920,140,5760,140C5600,140,5440,140,5280,140C5120,140,4960,140,4800,140C4640,140,4480,140,4320,140C4160,140,4000,140,3840,140C3680,140,3520,140,3360,140C3200,140,3040,140,2880,140C2720,140,2560,140,2400,140C2240,140,2080,140,1920,140C1760,140,1600,140,1440,140C1280,140,1120,140,960,140C800,140,640,140,480,140C320,140,160,140,80,140L0,140Z"></path></svg>
     </footer>
 
     <!--Formas y figuras de la página-->
